@@ -49,3 +49,22 @@ Follow these instructions to set up the project locally.
    ```bash
    git clone https://github.com/durgasahu24/ecommerce.git
    cd ecommerce
+   # Navigate to the backend directory and install dependencies
+cd backend
+npm install
+
+# Navigate to the frontend directory and install dependencies
+cd ../frontend
+npm install
+# Navigate to the backend directory and install dependencies
+cd backend
+npm install
+
+# Navigate to the frontend directory and install dependencies
+cd ../frontend
+npm install
+cd backend
+npm run dev
+cd frontend
+npm start
+
