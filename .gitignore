@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Ignore environment files in frontend and backend
+/frontend/.env
+/frontend/.env.*.local
+/backend/.env
+/backend/.env.*.local
+
+
+# Dependency directories
+node_modules/
+**/node_modules/
+
+
+# npm and Yarn files
+package-lock.json
+yarn.lock
+
+# React-specific
+coverage/
+*.sass-cache
+
+# MongoDB-specific
+data/
+*.lock
+mongod.lock
+
+
