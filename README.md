@@ -1,4 +1,4 @@
-# eCommerce Project
+# ecommerce Project
 
 Welcome to the eCommerce project! This repository contains the source code for a full-stack eCommerce application, including both frontend and backend components.
 
