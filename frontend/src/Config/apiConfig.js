@@ -8,7 +8,7 @@ console.log("api base ",import.meta.env.VITE_API_BASE_URL)
 
 const jwt = localStorage.getItem("jwt");
 
-// console.log("jwt in api config : ",jwt);
+
 
 
 const api = axios.create({

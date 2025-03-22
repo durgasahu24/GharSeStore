@@ -59,36 +59,6 @@ const createPaymentLink = async (orderId) => {
 
 const updatePaymentInformation = async (reqData) => {
 
-    // const paymentId = reqData.payment_id;
-    // const orderId = reqData.order_id;
-
-    // console.log("update payment service payment id and orderId : ", paymentId, orderId);
-
-    // try {
-
-    //     const order = await orderService.findOrderById(orderId);;
-
-    //     console.log("order in update payment  : ", order);
-
-    //     const payment = await razorpay.payments.fetch(paymentId);
-
-
-    //     if (payment.status = "captured") {
-    //         order.paymentDetails.paymentId = paymentId;
-    //         order.paymentDetails.status = "COMPLETED";
-    //         order.orderStatus = "PLACED";
-
-    //         await order.save();
-    //     }
-
-    //     const reqData = { message: "Your order is placed ", success: true }
-
-    //     return reqData;
-
-
-    // } catch (error) {
-    //     throw new Error(error.message);
-    // }
 
 
     console.log("welcome to service payment : ");

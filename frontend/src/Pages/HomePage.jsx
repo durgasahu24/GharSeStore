@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { findProducts } from "../state/Product/Action";
 import img from "../assets/perfect.png"
-import api from "../config/apiConfig.js";
+import api from "../Config/apiConfig.js";
 import HomeSectionCard from "../Customer/Components/HomeSectionCard/HomeSectionCard.jsx";
 
 const HomePage = () => {

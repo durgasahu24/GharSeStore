@@ -1,4 +1,5 @@
-import api from "../../../config/apiConfig.js";
+
+import api from "../../../Config/apiConfig.js";
 import { DELETE_USER_FAILURE, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, GET_ALL_USER_REQUEST } from "./ActionType";
 import { GET_ALL_USER_SUCCESS } from "./ActionType";
 import { GET_ALL_USER_FAILURE } from "./ActionType";

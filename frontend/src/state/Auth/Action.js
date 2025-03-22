@@ -1,4 +1,5 @@
-import { API_BASE_URL } from "../../config/apiConfig.js";
+// import { API_BASE_URL } from "../../config/apiConfig.js";\
+import { API_BASE_URL } from "../../Config/apiConfig";
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE, LOGOUT } from "./ActionType";
 import axios from "axios";
 
@@ -22,7 +23,7 @@ export const register = (userdata) => async (dispatch) => {
   try {
 
     console.log("userData", userdata);
-    console.log("ap base url ",API_BASE_URL);
+    console.log("ap base url ", API_BASE_URL);
     const response = await axios.post(`${API_BASE_URL}/auth/signup`, userdata);
 
     console.log("response ======  : ", response);
@@ -57,7 +58,7 @@ export const login = (userData) => async (dispatch) => {
 
   dispatch(loginRequest())
 
-  console.log("auth base url : ",API_BASE_URL);
+  console.log("auth base url : ", API_BASE_URL);
 
   try {
     const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);

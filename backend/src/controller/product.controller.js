@@ -112,13 +112,7 @@ async function searchProduct(req, res) {
 async function getLatestProduct(req, res) {
     console.log("welcom to latet product :");
 
-    // try {
-    //     // Fetch latest 10 products sorted by creation date
-    //     const latestProducts = await Product.find().sort({ createdAt: -1 }).limit(10);
-    //     res.status(200).json(latestProducts);
-    // } catch (error) {
-    //     res.status(500).json({ message: 'Error fetching latest products', error });
-    // }
+  
     try {
         // Query to fetch latest products sorted by createdAt in descending order
         const products = await Product.find()
@@ -155,54 +149,6 @@ const getProductsByCategoryId = async (req, res) => {
     }
 };
 
-// const getProductsByCategory = async (categoryName) => {
-
-//     console.log("hello from get latest product :");
-//     return Product.find({ category: categoryName }) // Filter by category
-//       .sort({ createdAt: -1 }) // Sort by most recent
-//       .exec(); // Execute the query
-//   };
-
-// const getProductByCategoryName = async (req, res) => {
-
-//     console.log("welcome to getProductByCategoryName : ");
-
-//     const { category } = req.query;
-
-//     const categoryGet = await Category.findOne({ name: `${category}` });
-//     if (!categoryGet) {
-//         return res.status(404).json({ error: "Category not found" });
-//     }
-//     const categoryId = categoryGet._id;
-
-//     const products = await Product.find({ category: categoryId });
-
-
-//     // try {
-//     //     const { category } = req.query;
-
-//     //     console.log("category : ",category);
-
-//     //     // Validate category
-//     //     if (!category) {
-//     //         return res.status(400).json({ error: 'Category is required' });
-//     //     }
-
-//     //     console.log("aboe products ");
-
-//     //     // Fetch products by category
-//     //     const products = await Product.findOne({ name : `${category}` });
-
-//     //     console.log("after products ");
-
-//     //     console.log("products in getProducts ",products);
-
-//     //     res.json(products); // Return only the products
-//     // } catch (error) {
-//     //     console.error(error);
-//     //     res.status(500).json({ error: 'Server error' });
-//     // }
-// }
 
 const getProductByCategoryName = async (req, res) => {
     try {
