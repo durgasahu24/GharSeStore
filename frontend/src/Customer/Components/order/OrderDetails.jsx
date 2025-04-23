@@ -6,11 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { cancelOrder } from "../../../state/Admin/order/Action.js";
 
 const stages = [
+
   { id: 1, name: "Order Placed", key: "ORDER_PLACED", description: "Your order has been placed successfully." },
   { id: 2, name: "Order Confirmed", key: "CONFIRMED", description: "Your order has been confirmed and is being prepared." },
   { id: 3, name: "Shipped", key: "SHIPPED", description: "Your order has been shipped and is on its way to the delivery address." },
   { id: 4, name: "Out For Delivery", key: "OUT_FOR_DELIVERY", description: "Your order is out for delivery and will reach you soon." },
   { id: 5, name: "Delivered", key: "DELIVERED", description: "Your order has been delivered successfully." },
+
 ];
 
 const OrderDetails = () => {
@@ -23,10 +25,13 @@ const OrderDetails = () => {
   const [currentStage, setCurrentStage] = useState(1);
   const [isCancelled, setIsCancelled] = useState(false);
 
+
   // Fetch order details on component mount or when orderId changes
   useEffect(() => {
     dispatch(getOrderById(orderId));
   }, [orderId]);
+
+
 
   // Update current stage based on order status
   useEffect(() => {
@@ -68,11 +73,10 @@ const OrderDetails = () => {
                 <div className="relative flex flex-col items-center">
                   {/* Circle */}
                   <div
-                    className={`w-10 h-10 z-0 rounded-full border-4 flex items-center justify-center font-semibold ${
-                      index + 1 <= currentStage
-                        ? "bg-gray-700 border-gray-700 text-white"
-                        : "bg-white border-gray-300 text-gray-500"
-                    }`}
+                    className={`w-10 h-10 z-0 rounded-full border-4 flex items-center justify-center font-semibold ${index + 1 <= currentStage
+                      ? "bg-gray-700 border-gray-700 text-white"
+                      : "bg-white border-gray-300 text-gray-500"
+                      }`}
                   >
                     {index + 1}
                   </div>
@@ -80,9 +84,8 @@ const OrderDetails = () => {
                   {/* Line */}
                   {index < stages.length - 1 && (
                     <div
-                      className={`z-0 w-1 h-12 bg-gray-300 ${
-                        index + 1 < currentStage && "bg-blue-500"
-                      }`}
+                      className={`z-0 w-1 h-12 bg-gray-300 ${index + 1 < currentStage && "bg-blue-500"
+                        }`}
                     ></div>
                   )}
                 </div>

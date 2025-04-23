@@ -5,13 +5,6 @@ const Category = require("../models/category.model");
 
 async function createProduct(req, res) {
 
-    console.log("req.body in create product  : ", req.body);
-    console.log("req file : ", req.files)
-    console.log("toplevel",req.body.topLevelCategory)
-    console.log("secondLevel",req.body.secondLevelCategory);
-    console.log("thiredLevel : ",req.body.thirdLevelCategory);
-    console.log("%persent  : ",req.body.discountPercent);
-
 
     const sizes = [];
     Object.keys(req.body).forEach((key) => {
@@ -180,6 +173,7 @@ async function findProductById(productId) {
 async function getAllProducts(reqQuery) {
 
     console.log("reqQuery : ", reqQuery);
+
     let {
         category,
         sizes,
@@ -197,7 +191,9 @@ async function getAllProducts(reqQuery) {
 
     // Handle category filtering
     if (category) {
+
         const existCategory = await Category.findOne({ name: category.trim() });
+
         if (existCategory) {
             query = query.where("category").equals(existCategory._id);
         } else {
@@ -226,6 +222,7 @@ async function getAllProducts(reqQuery) {
     if (minPrice && maxPrice) {
         query = query.where("discountedPrice").gte(minPrice).lte(maxPrice);
     }
+
 
     // Handle discount filtering
     if (minDiscount) {

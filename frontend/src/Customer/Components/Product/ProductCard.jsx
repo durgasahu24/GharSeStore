@@ -13,7 +13,7 @@ export const ProductCard = ({ product }) => {
             onClick={handleNavigate}
             className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg border border-gray-200 duration-300 cursor-pointer w-full"
         >
-            {/* Product Image */}
+        
             <img
                 className="w-full 
                     h-[150px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] 
@@ -32,25 +32,7 @@ export const ProductCard = ({ product }) => {
                     {product.title || "No description available."}
                 </p>
 
-                {/* Price and Discount */}
-                {/* <div className="flex justify-between items-center mt-3">
-                    <div>
-                        <span className="font-bold text-lg sm:text-xl text-blue-600">₹{product.price}</span>
-                        {product.discountedPrice && (
-                            <>
-                                <span className="line-through text-gray-500 ml-2 text-sm sm:text-base">
-                                    ₹{product.discountedPrice}
-                                </span>
-                                
-                                 <span className="text-green-600 ml-2 text-sm sm:text-base">
-                                    {product.discountPercent}% off
-                                </span>
-                                
-                            </>
-                        )}
-                    </div> */}
-
-                {/* </div> */}
+            
 
                 <div className="flex flex-col sm:flex-row justify-between items-start ml-4 md:ml-10">
                     <div>

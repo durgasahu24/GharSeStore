@@ -18,6 +18,8 @@ const storage = multer.diskStorage({
   }
 });
 
+
+
 // File filter to allow only image files
 const upload = multer({
   storage,

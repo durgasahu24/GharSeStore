@@ -6,6 +6,8 @@ require('dotenv').config();
 const keyId = process.env.KEY_ID
 const keySecret = process.env.KEY_SECRET
 
+console.log("keyId : ", process.env.KEY_ID);
+
 
 const razorpay = new Razorpay({
     key_id: process.env.KEY_ID,

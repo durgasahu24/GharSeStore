@@ -17,8 +17,6 @@ const OrderPage = () => {
         dispatch(getOrderHistory());
     }, [jwt]);
 
-    // console.log("users orders ", order.orders)
-
 
 
 

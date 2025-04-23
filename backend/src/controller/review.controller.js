@@ -21,7 +21,7 @@ const getAllReview = async (req, res) => {
     const reviews = await reviewService.getAllReview(productId);
     return res.status(200).send(reviews); // Changed status to 200 OK for successful retrieval
   } catch (error) {
-    console.log("reviews in get all reviews : ",error.message)
+    console.log("reviews in get all reviews : ", error.message)
     return res.status(500).send({ error: error.message }); // Corrected typo here
   }
 };

@@ -10,7 +10,6 @@ router.get('/search', productController.searchProduct);
 router.get('/latest', productController.getLatestProduct)
 router.get('/category/:categoryId', productController.getProductsByCategoryId)
 router.get('/category', productController.getProductByCategoryName)
-// router.get('/latestCategoryWise/:category', productController.getProductsByCategory)
 
 
 

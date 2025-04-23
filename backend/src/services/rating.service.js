@@ -3,19 +3,17 @@ const productService = require("../services/product.service.js")
 
 
 async function createRating(reqData, user) {
+
+
   try {
+
     console.log("Product ID:", reqData.productId);
+    
     const product = await productService.findProductById(reqData.productId);
 
     if (!product) {
       throw new Error("Product not found with ID " + reqData.productId);
     }
-
-    // Check if user already rated the product
-    // const existingRating = await Rating.findOne({ product: product._id, user: user._id });
-    // if (existingRating) {
-    //   throw new Error("User has already rated this product.");
-    // }
 
     // Create new rating
     const rating = new Rating({
@@ -44,7 +42,7 @@ async function createRating(reqData, user) {
 
 
 
-async function getProductsRating(productId) {  
+async function getProductsRating(productId) {
 
   const product = await productService.findProductById(productId);
 

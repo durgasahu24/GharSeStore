@@ -8,10 +8,6 @@ import { useDispatch, useSelector } from "react-redux"
 export const PaymentSuccess = () => {
     const navigate = useNavigate();
 
-    // Dummy order data (replace this with your actual data source)
-   
-
-
     const [paymentId, setPaymentId] = useState("");
     const [referenceId, setReferenceId] = useState("");
     const [paymentStatus, setPaymentStatus] = useState("");
@@ -111,9 +107,7 @@ export const PaymentSuccess = () => {
                                 <p className="text-gray-600 text-sm">
                                     DisCounted price: ₹{order.discountedPrice}
                                 </p>
-                                {/* <p className="text-gray-600 text-sm">
-                                    Price: ${order.price.toFixed(2)}
-                                </p> */}
+                            
                             </div>
                         </div>
                     ))}

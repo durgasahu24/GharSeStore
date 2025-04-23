@@ -25,47 +25,42 @@ const register = async (req, res) => {
 }
 
 
+
 const login = async (req, res) => {
     try {
-        // Destructure email, password, and role from the request body
         const { email, password, role } = req.body;
-
-        console.log("email,password,role",email,password,role);
 
         // Step 1: Fetch user by email
         const user = await userService.getUserByEmail(email);
-
         if (!user) {
-            return res.status(401).send({ message: "User not found with email: " + email });
+            return res.status(401).send({ message: "User not found" });
         }
 
-        // Step 2: Compare entered password with the stored hashed password
+        // Step 2: Check password
         const isPasswordValid = await bcrypt.compare(password, user.password);
-
         if (!isPasswordValid) {
             return res.status(401).send({ message: "Invalid password" });
         }
 
-        // Step 3: Check if the provided role is valid for the user
-        let userRole = role || "customer"; // Default to 'customer' if no role is provided
-
-        // If the credentials match the admin credentials, assign role 'admin'
-        if (email === "ds@gmail.com" && password === "ds1234" && role === "ADMIN") {
-            userRole = "ADMIN";
-        } else if (email === "ds@gmail.com" && password === "ds1234" && role != "ADMIN") {
-            return res.status(400).send({ message: "Invalid user and email" });
+        // Step 3: Check if requested role matches stored role
+        if (role && role !== user.role) {
+            return res.status(403).send({ message: `Unauthorized role access: You are not a ${role}` });
         }
 
-        // Step 4: Generate JWT token with user ID and role
-        const jwtToken = jwtProvider.generateToken(user._id, userRole);
+        // Step 4: Generate token using DB role
+        const jwtToken = jwtProvider.generateToken(user._id, user.role);
 
-        // Step 5: Return JWT token along with the role and success message
-        return res.status(200).send({ jwt: jwtToken, role: userRole, message: "Login success" });
+        return res.status(200).send({
+            jwt: jwtToken,
+            role: user.role,
+            message: "Login success"
+        });
 
     } catch (error) {
         return res.status(500).send({ error: error.message });
     }
 };
+
 
 
 

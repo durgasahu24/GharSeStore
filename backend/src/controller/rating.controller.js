@@ -3,9 +3,9 @@ const ratingService = require("../services/rating.service.js")
 const createRating = async (req, res) => {
 
     const user = req.user
+
     try {
-        // const review = await ratingService.createRating(req.body.user);
-        const rating = await ratingService.createRating(req.body, req.user); 
+        const rating = await ratingService.createRating(req.body, req.user);
         return res.status(201).send(rating)
 
     } catch (error) {

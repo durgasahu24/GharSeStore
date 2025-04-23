@@ -6,19 +6,16 @@ const createPaymentLink = async (orderId) => {
 
     console.log("order id in payment : ", orderId);
     try {
+        
         const order = await orderService.findOrderById(orderId);
 
-        console.log("order in payment :", order.totalPrice);
-
-
-
         const paymentLinkRequest = {
-            amount: order.totalPrice * 1000,
+            amount: order.totalPrice * 100,
             currency: "INR",
             customer: {
-                name: order.user.firstName + " " + order.user.lastName,
-                contact: order.user.mobile,
-                email: order.user.email,
+                name:order.user.firstName + " " + order.user.lastName,
+                contact:order.shippingAddress.mobile,
+                email:order.user.email,
             },
             notify: {
                 sms: true,
@@ -31,16 +28,24 @@ const createPaymentLink = async (orderId) => {
 
         console.log("payment link request ", paymentLinkRequest);
 
-        console.log('KEY_ID:', process.env.KEY_ID);
-        console.log('KEY_SECRET:', process.env.KEY_SECRET);
+
+        console.log("razorpay : ",razorpay.paymentLink.create);
 
 
-        const paymentLink = await razorpay.paymentLink.create(paymentLinkRequest);
+
+            const paymentLink = await razorpay.paymentLink.create(paymentLinkRequest);
 
         console.log("paymentLink : ", paymentLink);
+            
+       
+
+
+        
 
         const paymentLinkId = paymentLink.id;
         const payment_link_url = paymentLink.short_url;  // it will redirect payment page of razorpay gateway 
+
+        console.log("payment_line_rul  : ",payment_link_url)
 
         const resData = {
             paymentLinkId,

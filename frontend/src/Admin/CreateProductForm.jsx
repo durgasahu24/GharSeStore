@@ -6,7 +6,7 @@ const initialSizes = [{ name: "S", quantity: "" }, { name: "M", quantity: "" }, 
 const categoryOptions = {
   topLevel: ["Men", "Women"],
   secondLevel: ["Clothing", "Accessories", "Brands"],
-  thirdLevel: ["Top", "Women Dresses", "T-Shirts", "Dresses","Shirt","Men_Jeans"],
+  thirdLevel: ["Top", "Women Dresses", "T-Shirts", "Dresses", "Shirt", "Men_Jeans"],
 };
 
 const CreateProductForm = () => {
@@ -258,6 +258,7 @@ const CreateProductForm = () => {
             <option key={category} value={category.toLowerCase()}>{category}</option>
           ))}
         </select>
+        
       </div>
 
       {/* Size and Quantity */}

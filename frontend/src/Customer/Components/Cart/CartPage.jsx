@@ -4,14 +4,16 @@ import CartItem from "./CartItem"; // Import the CartItem component
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../../state/cart/Action";
+import { removeCartItem } from "../../../state/cart/Action";
+
 
 
 
 const CartPage = () => {
+
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { cart } = useSelector(store => store);
-  console.log("cart : ", cart);
 
 
 
@@ -29,7 +31,6 @@ const CartPage = () => {
 
 
   const handleRemoveItemFromCart = (id) => {
-    // const data = { cartItemId: item?._id};
     dispatch(removeCartItem(id));
   };
 
@@ -58,13 +59,11 @@ const CartPage = () => {
               <CartItem
                 key={item._id}
                 item={item}
-              // handleIncreaseQuantity={handleIncreaseQuantity}
-              // handleDecreaseQuantity={handleDecreaseQuantity}
-              // handleRemoveItem={handleRemoveItem}
               />
             ))}
           </tbody>
         </table>
+
 
         {/* Mobile/Table Layout for Cart Items */}
         <div className="md:hidden">
@@ -73,9 +72,8 @@ const CartPage = () => {
               {/* Left side: Product Image and Remove Button */}
               <div className="flex items-center mb-4 md:mb-0 md:w-1/4 justify-between w-full">
                 <img src={item?.product?.images[0]} alt={item.name} className="w-16 h-16 object-cover" />
-                {/* Remove Button right after the image */}
+                
                 <Button
-                  // onClick={() => handleRemoveItem(item.id)}
                   onClick={() => handleRemoveItemFromCart(item._id)}
                   color="error"
                   variant="outlined"
@@ -95,9 +93,6 @@ const CartPage = () => {
 
                 {/* Quantity Control */}
                 <div className="flex items-center mb-2">
-                  {/* <Button onClick={() => handleDecreaseQuantity(item.id)}>-</Button> */}
-                  {/* <span className="mx-2">{item.quantity}</span> */}
-                  {/* <Button onClick={() => handleIncreaseQuantity(item.id)}>+</Button> */}
                   <Button disabled={item.quantity <= 1} onClick={() => handleUpdateCartItem(-1)}>-</Button>
                   <span className="mx-2">{item?.quantity}</span>
                   <Button onClick={() => handleUpdateCartItem(+1)}>+</Button>

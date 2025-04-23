@@ -11,7 +11,7 @@ import { Pagination } from '@mui/material'
 
 function Product() {
 
-    // const [filteredProducts, setFilteredProducts] = useState(allProducts);
+
     const [expandedFilter, setExpandedFilter] = useState("");
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const [activeFilters, setActiveFilters] = useState({
@@ -22,14 +22,14 @@ function Product() {
         availability: "",
     });
 
+
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
     const param = useParams();
 
     const { products } = useSelector(store => store);
-    // console.log("products : ", products);
-    // console.log("products : ", products.product.content);
+
 
     const decodedQueryString = decodeURIComponent(location.search);
     const searchParams = new URLSearchParams(decodedQueryString);
@@ -43,11 +43,10 @@ function Product() {
 
     console.log(decodedQueryString, searchParams, colorValue, sizeValue, price, disccount, sortValue, pageNumber, stock);
 
-    // console.log("parma ; ", param.lavelThree);
-
 
 
     // Read filter values from URL on mount
+
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const filtersFromUrl = {
@@ -57,7 +56,6 @@ function Product() {
             discount: searchParams.get("discount") || "",
             availability: searchParams.get("availability") || "",
         };
-
         setActiveFilters(filtersFromUrl);
     }, [location.search]);
 
@@ -98,10 +96,12 @@ function Product() {
         setExpandedFilter(expandedFilter === filterName ? "" : filterName);
     };
 
+
     // Toggle sidebar visibility for mobile/tablet
     const toggleSidebar = () => {
         setIsSidebarVisible(!isSidebarVisible);
     };
+
 
     // Update filters in search parameters
     const handleCheckboxFilter = (value, sectionId) => {
@@ -114,8 +114,10 @@ function Product() {
             [sectionId]: newFilterValues,
         }));
 
+
         // Update the URL search params
         const searchParams = new URLSearchParams(location.search);
+
         if (newFilterValues.length > 0) {
             searchParams.set(sectionId, newFilterValues.join(","));
         } else {
@@ -157,6 +159,7 @@ function Product() {
     };
 
     return (
+
         <div>
             <div className="flex flex-col lg:flex-row min-h-screen mt-15 lg:mt-[68px]">
                 {/* Filter Button for Mobile/Tablet */}
@@ -220,6 +223,7 @@ function Product() {
                             ))
                         )}
                     </div>
+                    
 
                     {/* Price Filter */}
                     <div className="mb-4">

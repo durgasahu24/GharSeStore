@@ -21,6 +21,7 @@ async function createOrder(user, shippAddress) {
         address = existAddress;
     }
     else {
+
         address = new Address(shippAddress);
         address.user = user;
         await address.save();
@@ -89,6 +90,7 @@ async function confirmedOrder(orderId) {
 }
 
 async function shipOrder(orderId) {
+
     console.log("ship order id ", orderId);
     const order = await findOrderById(orderId);
 
@@ -98,6 +100,7 @@ async function shipOrder(orderId) {
 }
 
 async function deliveredOrder(orderId) {
+    
     const order = await findOrderById(orderId);
 
     if (!order) {
@@ -165,7 +168,6 @@ async function userOrderHistory(userId) {
 
         console.log("orders in service : ", orders);
         return orders;
-
 
     } catch (error) {
         throw new Error(error.message);

@@ -8,7 +8,9 @@ const AdminRouter = () => {
   const [activeOption, setActiveOption] = useState('orders'); // Track the active sidebar option
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Handle mobile sidebar toggle
 
+
   return (
+
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Mobile Navbar */}
       <div className="bg-gray-800 text-white md:hidden flex items-center justify-between px-4 py-3">
@@ -24,9 +26,8 @@ const AdminRouter = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full z-50 bg-gray-800 text-white w-64 p-4 transition-transform duration-300 transform ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:relative md:translate-x-0`}
+        className={`fixed top-0 left-0 h-full z-50 bg-gray-800 text-white w-64 p-4 transition-transform duration-300 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          } md:relative md:translate-x-0`}
       >
         <Sidebar
           activeOption={activeOption}

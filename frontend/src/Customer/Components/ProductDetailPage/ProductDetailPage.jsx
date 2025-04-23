@@ -18,7 +18,6 @@ const ProductDetailPage = () => {
   const params = useParams();
   const jwt = localStorage.getItem("jwt");
   const { products, auth } = useSelector((store) => store);
-  // console.log("auth in product detail : ",auth);
 
   // State for the main image
   const [mainImage, setMainImage] = useState(null);
@@ -138,9 +137,7 @@ const ProductDetailPage = () => {
 
           {/* Add to Cart and Buy Now Buttons */}
           <div className="flex gap-6">
-            {/*<button className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
-            Buy Now
-          </button> */}
+
             <button
               onClick={handleAddToCart}
               className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
@@ -155,7 +152,7 @@ const ProductDetailPage = () => {
 
         {/* <h1>Related Products</h1> */}
       </div>
-      {/* <HomeSectionCard  category={"mens_kurta"} productName={"Mens kurta"}/> */}
+
       <RelatedProduct categoryId={products?.product?.category} />
     </div>
   );

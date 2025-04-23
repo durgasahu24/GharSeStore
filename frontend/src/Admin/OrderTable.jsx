@@ -15,7 +15,7 @@ function OrdersTable() {
 
   useEffect(() => {
     dispatch(getOrders());
-  }, [dispatch,orders]);
+  }, [dispatch, orders]);
 
   const handleMenuOpen = (orderId) => {
     setMenuState({ isOpen: true, orderId });
@@ -83,14 +83,14 @@ function OrdersTable() {
                   <td className="p-4">
                     <span
                       className={`px-4 py-2 rounded-full text-white ${item.orderStatus === "CONFIRMED"
-                          ? "bg-green-500"
-                          : item.orderStatus === "SHIPPED"
-                            ? "bg-blue-500"
-                            : item.orderStatus === "PLACED"
-                              ? "bg-yellow-500"
-                              : item.orderStatus === "PENDING"
-                                ? "bg-gray-500"
-                                : "bg-teal-600"
+                        ? "bg-green-500"
+                        : item.orderStatus === "SHIPPED"
+                          ? "bg-blue-500"
+                          : item.orderStatus === "PLACED"
+                            ? "bg-yellow-500"
+                            : item.orderStatus === "PENDING"
+                              ? "bg-gray-500"
+                              : "bg-teal-600"
                         }`}
                     >
                       {item.orderStatus}

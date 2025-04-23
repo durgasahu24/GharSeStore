@@ -74,7 +74,7 @@ async function addCartItem(userId, req) {
 
         if (!isPresent) {
 
-            console.log("is present : ");
+            // console.log("is present : ");
             const cartItem = new CartItem({
                 product: product._id,
                 cart: cart._id,

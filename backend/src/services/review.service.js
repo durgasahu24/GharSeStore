@@ -1,5 +1,4 @@
-// const Review = require("../models/review.model.js");
-// const productService = require("../services/product.service.js")
+
 
 const Review = require("../models/review.model.js")
 const productService = require("../services/product.service.js")
@@ -16,12 +15,7 @@ async function createReview(reqData, user) {
       throw new Error("Product not found with ID " + reqData.productId);
     }
 
-    // Check if user has already submitted a review for this product
-    // const existingReview = await Review.findOne({ product: product._id, user: user._id });
-    // if (existingReview) {
-    //   throw new Error("User has already reviewed this product.");
-    // }
-
+  
     // Create new review
     const review = new Review({
       product: product._id,
@@ -69,8 +63,6 @@ async function getAllReview(productId) {
   return reviews;
 
 
-  // for getting user id only 
-  // return await Review.find({product:productId})
 
 }
 

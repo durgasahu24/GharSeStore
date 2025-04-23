@@ -7,9 +7,6 @@ function PriceDetails({ totalPrice, discountApplied}) {
         <p className="text-gray-700">Delivery Charge: ₹  Free</p>
         <hr className="my-4" />
         <p className="font-semibold text-lg">Total Price:₹ {discountApplied}</p>
-        {/* <button className="w-full mt-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200">
-          Proceed to Payment
-        </button> */}
       </div>
     );
   }

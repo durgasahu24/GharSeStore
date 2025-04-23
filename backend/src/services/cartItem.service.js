@@ -28,40 +28,12 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
             item.price = item.quantity * item.product.discountedPrice;
             item.discountedPrice = item.quantity * item.product.discountedPrice;
             const roshan = await item.save();
-            console.log("updateCartItem ",roshan)
+            console.log("updateCartItem ", roshan)
             return roshan;
         }
         else {
             throw new Error("you can't update this cart item :")
         }
-
-
-
-
-        // const item = await findCartItemById(cartItemId.trim())
-      
-        // if(!item){
-        //   throw new Error("cart item not found : ",cartItemId)
-        // }
-        // const user = await userService.findUserById(item.userId);
-      
-        // if(!user){
-        //   throw new Error("user not found : ",userId)
-        // }
-      
-      
-        // if (user.id === userId.toString()) {
-        //   item.quantity = cartItemData.quantity;
-        //   item.price = item.quantity * item.product.price;
-        //   item.discountedPrice = item.quantity * item.product.discountedPrice;
-      
-        //   const upadatedCartItem = await item.save();
-        //   console.log("here is roshan define")
-        //   console.log("roshan",upadatedCartItem)
-        //   return upadatedCartItem;
-        // } else {
-        //   throw new Error("You can't update another user's cart_item");
-        // }      
 
     } catch (error) {
         throw new Error(error.message);

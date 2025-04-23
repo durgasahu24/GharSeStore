@@ -7,24 +7,11 @@ import { useSelector,useDispatch } from 'react-redux';
 
 const RecentReviewRating = ({ Id }) => {
 
-  // console.log("product id in reacent review : ",Id);
-  // const rating = 3;
   
   const [showAllReviews, setShowAllReviews] = useState(false);
   const dispatch = useDispatch();
   const {reviewRating } = useSelector(store=>store);
   const {ratings,reviews} = reviewRating;
-  // console.log("ratings ",ratings);
-  // console.log("ratings rating ",ratings[0]?.rating);
-  // console.log("reviews",reviews);
-
-  // console.log("reviews : in recent : ",reviewRating);
-
-
-  
-  // State to toggle between showing one review and all reviews
-
-
 
 
   useEffect(() => {
