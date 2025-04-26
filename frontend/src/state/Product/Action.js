@@ -30,16 +30,12 @@ export const findProducts = (reqData) => async (dispatch) => {
     console.log("reqdat in findProducts : ", reqData);
 
     const { colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize } = reqData;
-    console.log(colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize);
+    console.log("value in findProduct s; ",colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize);
 
 
 
     try {
 
-
-        console.log("this is reqest data in findproducts in try blog 1 : ", reqData);
-        console.log("this is reqest data in findproducts in try blog 1 : ", reqData.sizes);
-        console.log("this is reqest data in findproducts in try blog 1 : ", reqData.minPrice);
 
         const { data } = await api.get(`/api/products?color=${colors}&sizes=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`)
 

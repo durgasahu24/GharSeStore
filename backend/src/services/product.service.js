@@ -226,6 +226,7 @@ async function getAllProducts(reqQuery) {
 
     // Handle discount filtering
     if (minDiscount) {
+        console.log("this is discount: ",minDiscount);
         query = query.where("discountPersent").gt(minDiscount);
     }
 

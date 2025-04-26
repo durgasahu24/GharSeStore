@@ -36,7 +36,7 @@ function Product() {
     const colorValue = searchParams.get("color");
     const sizeValue = searchParams.get("size");
     const price = searchParams.get("price");
-    const disccount = searchParams.get("disccout");
+    const disccount = searchParams.get("discount");
     const sortValue = searchParams.get("sort");
     const pageNumber = searchParams.get("page") || 1;
     const stock = searchParams.get("stock");
@@ -223,7 +223,7 @@ function Product() {
                             ))
                         )}
                     </div>
-                    
+
 
                     {/* Price Filter */}
                     <div className="mb-4">
@@ -235,7 +235,7 @@ function Product() {
                             {expandedFilter === "price" ? <RemoveIcon /> : <AddIcon />}
                         </h3>
                         {expandedFilter === "price" && (
-                            ["₹159 To ₹399", "₹399 To ₹999", "₹999 To ₹1999", "₹1999 To ₹2999", "₹3999 To ₹4999"].map((price) => (
+                            ["159-399", "399-999", "999-1999", "1999-2999", "3999-4999"].map((price) => (
                                 <div key={price} className="flex items-center">
                                     <input
                                         type="checkbox"
@@ -244,7 +244,7 @@ function Product() {
                                         value={price}
                                         className="mr-2"
                                     />
-                                    <label>{price}</label>
+                                    <label>₹{price}</label>
                                 </div>
                             ))
                         )}
@@ -260,7 +260,7 @@ function Product() {
                             {expandedFilter === "discount" ? <RemoveIcon /> : <AddIcon />}
                         </h3>
                         {expandedFilter === "discount" && (
-                            ["0", "10", "20", "30", "50"].map((discount) => (
+                            ["0", "20", "40", "60", "80"].map((discount) => (
                                 <div key={discount} className="flex items-center">
                                     <input
                                         type="radio"

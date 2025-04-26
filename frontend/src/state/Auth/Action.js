@@ -1,5 +1,6 @@
-// import { API_BASE_URL } from "../../config/apiConfig.js";\
-import { API_BASE_URL } from "../../Config/apiConfig";
+
+
+import { API_BASE_URL } from "../../config/apiConfig";
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE, LOGOUT } from "./ActionType";
 import axios from "axios";
 
@@ -41,6 +42,7 @@ export const register = (userdata) => async (dispatch) => {
   } catch (error) {
     // console.log("error mesg : ", error.message)
     dispatch(registerFailure(error.message));
+
   }
 }
 

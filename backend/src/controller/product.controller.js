@@ -98,16 +98,7 @@ const createMultipleProduct = async (req, res) => {
 
 }
 
-// Search products by query
-async function searchProduct(req, res) {
-    try {
-        const query = req.params.query;
-        const products = await productService.searchProduct(query);
-        res.json(products);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-}
+
 
 async function getLatestProduct(req, res) {
     console.log("welcom to latet product :");
@@ -182,7 +173,6 @@ module.exports = {
     getAllProducts,
     createMultipleProduct,
     findProductById,
-    searchProduct,
     getLatestProduct,
     getProductsByCategoryId,
     getProductByCategoryName

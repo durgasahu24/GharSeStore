@@ -4,6 +4,7 @@ import { register, login } from "../../../state/Auth/Action";
 import { useSelector, useDispatch } from "react-redux";
 import store from "../../../state/store";
 import { getUser } from "../../../state/Auth/Action";
+import { toast } from "react-toastify";
 
 
 const AuthPage = () => {
@@ -64,7 +65,10 @@ const AuthPage = () => {
 
         dispatch(register(registerData)) // Dispatch register action
             .then(() => navigate("/"))
-            .catch((error) => console.error("Login failed:", error));
+            .catch((error) => 
+            {
+                console.error("Login failed:", error);
+            })
 
 
     };
