@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingCart, Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+// import { navigationData } from "./navigationData.js";
 import { navigationData } from "./navigationData.js";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
