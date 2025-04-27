@@ -4,7 +4,6 @@ import { register, login } from "../../../state/Auth/Action";
 import { useSelector, useDispatch } from "react-redux";
 import store from "../../../state/store";
 import { getUser } from "../../../state/Auth/Action";
-import { toast } from "react-toastify";
 
 
 const AuthPage = () => {
