@@ -3,8 +3,8 @@ import { Rating } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts, findProductsById } from "../../../state/Product/Action.js";
-import { createReview } from "../../../state/review/Action.js";
 import { createRating } from "../../../state/review/Action.js";
+import { createReview } from "../../../state/review/Action.js";
 
 
 
