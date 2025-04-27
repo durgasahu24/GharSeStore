@@ -1,4 +1,4 @@
-export const navigationData = {
+const navigationData = {
   categories: [
 
     {
@@ -123,5 +123,8 @@ export const navigationData = {
     { name: 'Stores', id: '/' },
   ],
 }
+
+
+export default navigationData;
 
 
