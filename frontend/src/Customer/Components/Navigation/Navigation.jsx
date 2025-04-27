@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingCart, Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { navigationData } from "./navigationData.js";
-import { navigationData } from "./navigationData.js";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser, logout } from "../../../state/Auth/Action.js";
+import { navigationData } from "./navigationData.js";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu toggle
