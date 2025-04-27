@@ -1,7 +1,8 @@
-// import api, { API_BASE_URL } from "../../config/apiConfig";
-// import api,{API_BASE_URL} from "../../Config/apiConfig";
-import api, { API_BASE_URL } from "../../config/apiConfig";
-// import { API_BASE_URL } from "../../config/apiConfig";
+
+import api from '../../Config/apiConfig.js';
+import { API_BASE_URL } from '../../Config/apiConfig.js';
+
+
 import {
     CREATE_PRODUCT_FAILURE,
     CREATE_PRODUCT_REQUEST,
