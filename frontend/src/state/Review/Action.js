@@ -1,4 +1,4 @@
-import api from '../../Config/apiConfig.js'
+import api from '../../Config/apiConfig.js';
 import {
   CREATE_REVIEW_SUCCESS,
   CREATE_REVIEW_FAILURE,

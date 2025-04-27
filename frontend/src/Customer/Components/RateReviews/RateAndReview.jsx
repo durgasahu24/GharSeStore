@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Rating } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { findProducts, findProductsById } from "../../../state/Product/Action";
-import { createReview } from "../../../state/review/Action";
-import { createRating } from "../../../state/review/Action";
+import { findProducts, findProductsById } from "../../../state/Product/Action.js";
+import { createReview } from "../../../state/review/Action.js";
+import { createRating } from "../../../state/review/Action.js";
 
 
 
