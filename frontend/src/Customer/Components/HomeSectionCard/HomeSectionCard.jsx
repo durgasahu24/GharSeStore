@@ -15,7 +15,7 @@ function HomeSectionCard({ category, productName }) {
 
       try {
         // Make the API call to fetch products by category
-        const response = await axios.get('http://localhost:8000/api/products/category', {
+        const response = await axios.get('https://gharsestore.onrender.com/api/products/category', {
           params: { category },  // Pass the category as a query parameter
         });
 
