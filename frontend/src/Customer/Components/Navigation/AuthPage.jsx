@@ -64,8 +64,7 @@ const AuthPage = () => {
 
         dispatch(register(registerData)) // Dispatch register action
             .then(() => navigate("/"))
-            .catch((error) => 
-            {
+            .catch((error) => {
                 console.error("Login failed:", error);
             })
 
@@ -76,7 +75,7 @@ const AuthPage = () => {
 
     return (
 
-        
+
         <div className="h-screen flex items-center justify-center bg-gray-100">
             <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
                 <h1 className="text-2xl font-semibold text-center mb-6">

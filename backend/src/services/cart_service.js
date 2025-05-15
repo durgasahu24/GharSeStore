@@ -55,6 +55,7 @@ async function findUserCart(userId) {
     }
 }
 
+
 async function addCartItem(userId, req) {
 
     console.log("req : ", req.productId);
@@ -103,8 +104,6 @@ async function addCartItem(userId, req) {
 }
 
 
-
-// module.exports = { createCart,findUserCart,addCartItem};
 
 module.exports = {
     createCart,

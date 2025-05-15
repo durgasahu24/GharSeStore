@@ -21,7 +21,7 @@ const Navigation = () => {
   const isLoggedIn = Boolean(auth.user);
   const jwt = localStorage.getItem("jwt");
   console.log("jwt : ", jwt);
-  // console.log("isLoggedIn: ",isLoggedIn);
+
 
   // Logout handler
   const handleLogout = () => {
@@ -130,7 +130,8 @@ const Navigation = () => {
             </button>
           </form>
 
-          {/* Authentication and Cart Links */}
+
+          {/* Authentication and Cart Links
           <div className="hidden lg:flex items-center space-x-4 ml-auto">
             {!isLoggedIn ? (
               <button
@@ -144,19 +145,25 @@ const Navigation = () => {
               </button>
             ) : (
               <>
-                <a
-                  href="/cart"
-                  className="hover:text-white bg-black px-3 py-2 rounded"
-                >
-                  <ShoppingCart /> Cart
-                </a>
-                <a
-                  href="/orders"
-                  className="hover:text-white bg-black px-3 py-2 rounded"
-                >
-                  Orders
-                </a>
+                {auth?.user?.role === "CUSTOMER" && (
+                  <>
+                    <a
+                      href="/cart"
+                      className="hover:text-white bg-black px-3 py-2 rounded"
+                    >
+                      <ShoppingCart /> Cart
+                    </a>
+                    <a
+                      href="/orders"
+                      className="hover:text-white bg-black px-3 py-2 rounded"
+                    >
+                      Orders
+                    </a>
+                  </>
+                )
+                }
                 {auth?.user?.role === "ADMIN" && (
+
                   <a
                     href="/Admin"
                     className="hover:text-white bg-black px-3 py-2 rounded"
@@ -172,7 +179,58 @@ const Navigation = () => {
                 </button>
               </>
             )}
+          </div> */}
+
+
+          <div className="hidden lg:flex items-center space-x-4 ml-auto">
+            {!isLoggedIn ? (
+              <button
+                onClick={() => {
+                  closeIsMenuOpen();
+                  navigate("/register");
+                }}
+                className="hover:text-white bg-black px-3 py-2 rounded"
+              >
+                Sign In
+              </button>
+            ) : (
+              <>
+                {auth?.user?.role === "CUSTOMER" && (
+                  <>
+                    <a
+                      href="/cart"
+                      className="hover:text-white bg-black px-3 py-2 rounded"
+                    >
+                      <ShoppingCart /> Cart
+                    </a>
+                    <a
+                      href="/orders"
+                      className="hover:text-white bg-black px-3 py-2 rounded"
+                    >
+                      Orders
+                    </a>
+                  </>
+                )}
+
+                {auth?.user?.role === "ADMIN" && (
+                  <a
+                    href="/admin"
+                    className="hover:text-white bg-black px-3 py-2 rounded"
+                  >
+                    Admin
+                  </a>
+                )}
+
+                <button
+                  onClick={handleLogout}
+                  className="hover:text-white bg-black px-3 py-2 rounded"
+                >
+                  Logout
+                </button>
+              </>
+            )}
           </div>
+
 
           {/* Mobile Hamburger Menu */}
           <button
@@ -182,105 +240,118 @@ const Navigation = () => {
             <MenuIcon />
           </button>
         </div>
-      </nav>
+      </nav >
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div
-          className="absolute inset-0 bg-black bg-opacity-50 z-10"
-          onClick={() => setIsMenuOpen(false)}
-        >
+      {
+        isMenuOpen && (
           <div
-            className="bg-white shadow-lg w-64 absolute top-0 left-0 h-full p-4 overflow-hidden"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside menu
+            className="absolute inset-0 bg-black bg-opacity-50 z-10"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <h3 className="text-lg font-bold mb-4">
-              {currentCategory ? currentCategory.name : "Menu"}
-            </h3>
+            <div
+              className="bg-white shadow-lg w-64 absolute top-0 left-0 h-full p-4 overflow-hidden"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside menu
+            >
+              <h3 className="text-lg font-bold mb-4">
+                {currentCategory ? currentCategory.name : "Menu"}
+              </h3>
 
-            {currentCategory && (
-              <button
-                onClick={() => setCurrentCategory(null)}
-                className="block text-left text-blue-500 hover:underline mb-4"
-              >
-                &larr; Back
-              </button>
-            )}
+              {currentCategory && (
+                <button
+                  onClick={() => setCurrentCategory(null)}
+                  className="block text-left text-blue-500 hover:underline mb-4"
+                >
+                  &larr; Back
+                </button>
+              )}
 
-            <div className="overflow-y-auto max-h-[80vh]">
-              {!currentCategory
-                ? navigationData.categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => { 
-                      // closeIsMenuOpen();
-                      setCurrentCategory(category);}}
-                    className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
-                  >
-                    {category.name}
-                  </button>
-                ))
-                : currentCategory.sections.map((section) => (
-                  <div key={section.id} className="mb-4">
-                    <h4 className="text-sm font-bold">{section.name}</h4>
-                    <ul className="ml-4">
-                      {section.items.map((item) => (
-                        <li
-                          key={item.id}
-                          onClick={() => { handleNavigate(currentCategory, section, item); closeIsMenuOpen(); }}
-                        >
-                          <button className="text-sm text-gray-700 hover:text-black">
-                            {item.name}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className="overflow-y-auto max-h-[80vh]">
+                {!currentCategory
+                  ? navigationData.categories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => {
+                        // closeIsMenuOpen();
+                        setCurrentCategory(category);
+                      }}
+                      className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                    >
+                      {category.name}
+                    </button>
+                  ))
+                  : currentCategory.sections.map((section) => (
+                    <div key={section.id} className="mb-4">
+                      <h4 className="text-sm font-bold">{section.name}</h4>
+                      <ul className="ml-4">
+                        {section.items.map((item) => (
+                          <li
+                            key={item.id}
+                            onClick={() => { handleNavigate(currentCategory, section, item); closeIsMenuOpen(); }}
+                          >
+                            <button className="text-sm text-gray-700 hover:text-black">
+                              {item.name}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+              </div>
+
+              {/* Orders */}
+
+
+              {auth?.user === "CUSTOMER" && (<h3>
+                <a
+                  href="/cart"
+                  className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                >
+                  Cart
+                </a>
+              </h3>)}
+              {auth?.user  === "CUSTOMER" && (<h3>
+                <a
+                  href="/orders"
+                  className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                >
+                  Orders
+                </a>
+              </h3>)}
+
+
+              {/* Admin  */}
+
+              {auth?.user?.role === "ADMIN" && (<h3>
+                <a
+                  href="/Admin"
+                  className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                >
+                  Admin
+                </a>
+              </h3>)}
+
+
+
+              {/* Add the Logout Button here for Mobile */}
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                >Logout</button>
+              ) : (<button
+                className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
+                onClick={() => {
+                  closeIsMenuOpen();
+                  navigate("/register");
+                }}>
+                Sign IN
+              </button>)}
             </div>
-
-            {/* Orders */}
-            {auth?.user && (<h3>
-              <a
-                href="/orders"
-                className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
-              >
-                Orders
-              </a>
-            </h3>)}
-
-
-            {/* Admin  */}
-
-            {auth?.user?.role === "ADMIN" && (<h3>
-              <a
-                href="/Admin"
-                className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
-              >
-                Admin
-              </a>
-            </h3>)}
-
-
-
-            {/* Add the Logout Button here for Mobile */}
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
-              >Logout</button>
-            ) : (<button
-              className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
-              onClick={() => {
-                closeIsMenuOpen();
-                navigate("/register");
-              }}>
-              Sign IN
-            </button>)}
           </div>
-        </div>
-      )}
-    </div>
+        )
+      }
+    </div >
   );
 };
 

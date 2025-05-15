@@ -5,8 +5,10 @@ const jwtProvider = require("../config/jwtProvider.js")
 // [bearer,token]
 
 const getUserProfile = async (req, res) => {
-    console.log("profile:");
+
+
     try {
+        
         const jwt = req.headers.authorization?.split(' ')[1];
         console.log("req headers authorization ", req.headers.authorization)
 

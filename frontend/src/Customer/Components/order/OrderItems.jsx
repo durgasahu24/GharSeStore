@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 function OrderItems({ items }) {  // Ensure `items` is an array passed to the component
   const navigate = useNavigate();
 
+  console.log("item in  orderits : ",items);
+
   const handleNavigate = (productId) => {
     navigate(`/order-details/${productId}/RateAndReview`);  // Navigate to the full path
   };

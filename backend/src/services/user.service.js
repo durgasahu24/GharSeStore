@@ -5,7 +5,9 @@ const jwtProvider = require("../config/jwtProvider")
 
 
 const createUser = async (userData) => {
+
     try {
+
         let { firstName, lastName, email, password } = userData;
 
         const isUserExist = await User.findOne({ email });
@@ -62,6 +64,7 @@ const getUserByEmail = async (email) => {
 
 
 const getUserProfileByToken = async (token) => {
+    
     try {
         const userId = jwtProvider.getUserIdFromToken(token);
 

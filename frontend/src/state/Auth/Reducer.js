@@ -11,10 +11,13 @@ import {
     LOGOUT
 } from "./ActionType.js"
 
+
+
+
 const initialState = {
     user: null,
     error: null,
-    jwt: null,
+    jwt:null,
     isLoggedIn: false,
 }
 

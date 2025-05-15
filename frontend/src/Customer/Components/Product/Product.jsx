@@ -41,8 +41,7 @@ function Product() {
     const pageNumber = searchParams.get("page") || 1;
     const stock = searchParams.get("stock");
 
-    console.log(decodedQueryString, searchParams, colorValue, sizeValue, price, disccount, sortValue, pageNumber, stock);
-
+   
 
 
     // Read filter values from URL on mount

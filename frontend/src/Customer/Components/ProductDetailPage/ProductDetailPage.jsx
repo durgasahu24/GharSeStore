@@ -136,15 +136,19 @@ const ProductDetailPage = () => {
           <p className="text-gray-700 mb-6">{products?.product?.description || "No description available."}</p>
 
           {/* Add to Cart and Buy Now Buttons */}
-          <div className="flex gap-6">
 
-            <button
-              onClick={handleAddToCart}
-              className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
-            >
-              Add to Cart
-            </button>
-          </div>
+          {auth?.user?.role === "CUSTOMER" && (
+              <div className="flex gap-6">
+
+                <button
+                  onClick={handleAddToCart}
+                  className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+                >
+                  Add to Cart
+                </button>
+              </div>
+          ) }
+
 
           {/* Recent Review Rating */}
           <RecentReviewRating Id={params?.productId} />

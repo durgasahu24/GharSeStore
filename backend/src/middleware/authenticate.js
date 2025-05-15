@@ -19,7 +19,7 @@ const austhenticate = async (req, res, next) => {
 
         const userId = jwtProvider.getUserIdFromToken(token);
         const user = await userService.findUserById(userId);
-        console.log("user : ",user);
+        console.log("user : ", user);
         req.user = user;
 
 

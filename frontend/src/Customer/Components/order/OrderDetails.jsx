@@ -21,6 +21,8 @@ const OrderDetails = () => {
 
   const { order } = useSelector((store) => store);
 
+  console.log("order in dtailw Page ; ",order);
+
   // State for tracking the current stage
   const [currentStage, setCurrentStage] = useState(1);
   const [isCancelled, setIsCancelled] = useState(false);

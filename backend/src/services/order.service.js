@@ -100,7 +100,7 @@ async function shipOrder(orderId) {
 }
 
 async function deliveredOrder(orderId) {
-    
+
     const order = await findOrderById(orderId);
 
     if (!order) {
@@ -115,6 +115,7 @@ async function deliveredOrder(orderId) {
 
 
 async function cancelledOrder(orderId) {
+    
     const order = await findOrderById(orderId);
 
     order.orderStatus = 'CANCELLED'
@@ -125,17 +126,6 @@ async function cancelledOrder(orderId) {
 async function findOrderById(orderId) {
 
     console.log("orderid in findOrder by id : ", orderId);
-
-    // console.log("order id in findproductby id  service : ", orderId);
-
-    // const order = await Order.findById(orderId)
-    //     .populate("user")
-    //     .populate({ path: "orderItems", populate: { path: "product" } })
-    //     .populate("shippingAddress")
-
-    //     console.log("order in find product id  : ",order);
-
-    // return order
 
     try {
         const order = await Order.findById(orderId)
@@ -174,7 +164,6 @@ async function userOrderHistory(userId) {
     }
 }
 
-//you have to lean lean() method 
 
 async function getAllOrders() {
     return await Order.find()

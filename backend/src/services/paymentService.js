@@ -38,8 +38,6 @@ const createPaymentLink = async (orderId) => {
         console.log("paymentLink : ", paymentLink);
             
        
-
-
         
 
         const paymentLinkId = paymentLink.id;

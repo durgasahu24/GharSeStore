@@ -71,8 +71,6 @@ const getAllProducts = async (req, res) => {
 
     const productId = req.params.id;
 
-    console.log("getAllproduct in controller : ", req.query);
-
     try {
         const products = await productService.getAllProducts(req.query)
         return res.status(200).send(products)
@@ -84,32 +82,19 @@ const getAllProducts = async (req, res) => {
 }
 
 
-const createMultipleProduct = async (req, res) => {
 
-    const productId = req.params.id;
-
-    try {
-        const product = await productService.createMultipleProduct(req.body)
-        return res.status(201).send({ message: "Product created successfully" })
-
-    } catch (error) {
-        return res.status(500).send({ error: error.message })
-    }
-
-}
 
 
 
 async function getLatestProduct(req, res) {
+
     console.log("welcom to latet product :");
 
-  
     try {
         // Query to fetch latest products sorted by createdAt in descending order
         const products = await Product.find()
             .sort({ createdAt: -1 }) // Sort by createdAt in descending order
             .limit(10); // Optional: Limit to latest 10 products
-
         res.status(200).json({
             success: true,
             data: products,
@@ -125,6 +110,7 @@ async function getLatestProduct(req, res) {
 
 
 const getProductsByCategoryId = async (req, res) => {
+    
     try {
         const categoryId = req.params.categoryId;
         const products = await Product.find({ category: categoryId }); // Fetch 5 products for simplicity
@@ -134,7 +120,7 @@ const getProductsByCategoryId = async (req, res) => {
         }
 
         res.status(200).json({ products });
-        
+
     } catch (error) {
         console.error("Error fetching products by category:", error);
         res.status(500).json({ message: "Server error" });
@@ -144,6 +130,7 @@ const getProductsByCategoryId = async (req, res) => {
 
 const getProductByCategoryName = async (req, res) => {
     try {
+
         const { category } = req.query;
 
         if (!category) {
@@ -171,7 +158,6 @@ module.exports = {
     deleteProduct,
     updateProduct,
     getAllProducts,
-    createMultipleProduct,
     findProductById,
     getLatestProduct,
     getProductsByCategoryId,

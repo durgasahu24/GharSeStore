@@ -6,10 +6,12 @@ import { cartReducer } from './cart/Reducer.js';
 import { orderReducer } from './Order/Reducer.js';
 import adminOrderReducer from './Admin/order/Reducer.js';
 import usersReducer from './Admin/allUsers/Reducer.js';
-// import reviewReducer from './RatingAndReview/Reducer.js';
 import reviewReducer from './Review/Reducer.js'
 
-// Combine your reducers into a root reducer
+
+
+
+
 const rootReducers = combineReducers({
   auth: authReducer,
   products: customerProductReducer,

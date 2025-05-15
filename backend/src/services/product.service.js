@@ -3,6 +3,9 @@ const { uploadOnCloudinary } = require("../utils/cloudinary"); // Assuming cloud
 const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 
+
+
+
 async function createProduct(req, res) {
 
 
@@ -34,9 +37,7 @@ async function createProduct(req, res) {
                 name: req.body.topLevelCategory,
                 level: 1,
             });
-            console.log("inside topLevel");
-            console.log(topLavelCategory);
-            console.log("after topLevel");
+      
             topLevel = await topLavelCategory.save();
         }
         console.log("toplevel : ", topLevel);
@@ -44,9 +45,10 @@ async function createProduct(req, res) {
         // Fetch the second-level category
         console.log("secondlevel value : ", req.body.secondLevelCategory)
         console.log("secondlevel value : ", req.body.secondLevelCategory)
+        
         let secondLevel = await Category.findOne({
-            name:req.body.secondLevelCategory,
-            parentCategory:topLevel._id,
+            name: req.body.secondLevelCategory,
+            parentCategory: topLevel._id,
         });
 
         // console.log("second level : ", secondLevel);
@@ -63,8 +65,8 @@ async function createProduct(req, res) {
 
         // Fetch the third-level category
         let thirdLevel = await Category.findOne({
-            name:req.body.thirdLevelCategory,
-            parentCategory:secondLevel._id,
+            name: req.body.thirdLevelCategory,
+            parentCategory: secondLevel._id,
         });
 
         // console.log("thired Level :", thirdLevel);
@@ -100,7 +102,7 @@ async function createProduct(req, res) {
         }
 
         console.log("imageUrls: ", imageUrls);
-        console.log("discouted persent :",req.body.discountedPrice)
+        console.log("discouted persent :", req.body.discountedPrice)
 
         // Create the product with the Cloudinary image URLs
         const product = new Product({
@@ -108,7 +110,7 @@ async function createProduct(req, res) {
             color: req.body.color,
             description: req.body.description,
             discountedPrice: req.body.discountedPrice,
-            discountPersent:req.body.discountPercent,
+            discountPersent: req.body.discountPercent,
             images: imageUrls, // Use the Cloudinary URLs for images
             brand: req.body.brand,
             price: req.body.price,
@@ -117,7 +119,7 @@ async function createProduct(req, res) {
             category: thirdLevel._id, // Set category to the third-level category
         });
 
-        console.log("product in service : ",product);
+        console.log("product in service : ", product);
 
         // Save the product
         const savedProduct = await product.save();
@@ -226,7 +228,7 @@ async function getAllProducts(reqQuery) {
 
     // Handle discount filtering
     if (minDiscount) {
-        console.log("this is discount: ",minDiscount);
+        console.log("this is discount: ", minDiscount);
         query = query.where("discountPersent").gt(minDiscount);
     }
 
@@ -245,8 +247,6 @@ async function getAllProducts(reqQuery) {
         query = query.sort({ discountedPrice: sortDirection });
     }
 
-    // Log query for debugging
-    // console.log("Constructed Query:", query.getQuery());
 
     // Pagination
     const totalProducts = await Product.countDocuments(query);
@@ -263,12 +263,6 @@ async function getAllProducts(reqQuery) {
 
 
 
-async function createMultipleProduct(product) {
-    for (let product of products) {
-        await createProduct(product)
-    }
-}
-
 
 
 module.exports = {
@@ -277,7 +271,7 @@ module.exports = {
     updateProduct,
     getAllProducts,
     findProductById,
-    createMultipleProduct
+
 }
 
 

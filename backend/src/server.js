@@ -10,4 +10,3 @@ app.listen(process.env.PORT || 8000, async () => {
     console.log(`ecommerce api listing on port ${process.env.PORT} `);
 })
 
-

@@ -1,5 +1,4 @@
-
-
+import { toast } from "react-toastify";
 import { API_BASE_URL } from "../../config/apiConfig";
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE, LOGOUT } from "./ActionType";
 import axios from "axios";
@@ -31,16 +30,16 @@ export const register = (userdata) => async (dispatch) => {
 
     const user = response.data;
 
-
-
     if (user.jwt) localStorage.setItem("jwt", user.jwt)
 
+    toast.success("User registered successfully ")
 
-
-    // console.log("dispatch(registerSuccess(user))", dispatch(registerSuccess(user)))
+    dispatch(registerSuccess(user))
 
   } catch (error) {
     // console.log("error mesg : ", error.message)
+
+    toast.error("Registration failed");
     dispatch(registerFailure(error.message));
 
   }
@@ -67,9 +66,10 @@ export const login = (userData) => async (dispatch) => {
     const user = response.data;
     // console.log("user in login  :", user)
     if (user.jwt) localStorage.setItem("jwt", user.jwt)
+    toast.success("User logged in successfully")
     dispatch(loginSuccess(user));
   } catch (error) {
-
+    toast.error("login failed ")
     dispatch(loginFailure(error.message));
   }
 }
@@ -104,7 +104,11 @@ export const getUser = (token) => {
 };
 
 export const logout = () => (dispatch) => {
+
   dispatch({ type: LOGOUT, payload: null })
+
+  toast.success("User logout successfully ")
+
 }
 
 

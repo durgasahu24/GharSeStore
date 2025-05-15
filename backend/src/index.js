@@ -9,18 +9,11 @@ app.use(cors())
 
 require("dotenv").config();
 
-// console.log(process.env.PORT);;
-
-app.use((req, res, next) => {
-  // console.log('Headers:', req.headers['content-type']);
-  next();
-});
-
-
 
 app.get("/", (req, res) => {
   return res.status(200).send({ message: "welcome to ecommerce api " })
 })
+
 
 
 const authRouters = require("./routers/auth.routes.js")

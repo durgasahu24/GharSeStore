@@ -10,9 +10,11 @@ import {
     GET_ORDER_HISTORY_SUCCESS,
     GET_ORDER_HISTORY_FAILURE
 } from "./Actiontype.js";
+import {toast} from 'react-toastify'
 
 
-import api from "../../config/apiConfig.js";
+
+import api from "../../Config/apiConfig.js";
 
 
 
@@ -26,6 +28,8 @@ export const createOrder = (reqData) => async (dispatch) => {
 
         const { data } = await api.post(`/api/orders/`, reqData.formData);
 
+        toast.success("Product created successfullly ");
+
         console.log("data after order created : ", data);
 
         if (data._id) {
@@ -38,7 +42,7 @@ export const createOrder = (reqData) => async (dispatch) => {
 
     } catch (error) {
         console.log("catch error : ", error);
-
+        toast.error("product creation failed ")
         dispatch({ type: CREATE_ORDER_FAILURE, payload: error.message });
     }
 };
@@ -54,7 +58,7 @@ export const getOrderById = (orderId) => async (dispatch) => {
         // const { data } = await api.get(`/api/orders/${orderId}`,);
         const { data } = await api.get(`/api/orders/${orderId}`)
 
-        // console.log("order by id ", data);
+        console.log("order by id ", data);
 
         dispatch({ type: GET_ORDER_BY_ID_SUCCESS, payload: data });
 

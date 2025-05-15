@@ -6,9 +6,6 @@ const bcrypt = require("bcrypt")
 
 const register = async (req, res) => {
 
-    console.log("req: ", req);
-
-
     try {
 
         const user = await userService.createUser(req.body);

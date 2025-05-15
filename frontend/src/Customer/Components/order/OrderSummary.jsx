@@ -16,7 +16,7 @@ function OrderSummary() {
   const searchParams = new URLSearchParams(location.search);
   const orderId = searchParams.get("order_id");
 
-  // console.log("orderid : ",orderId)
+  console.log("orderid : ", orderId)
 
   // Select the `order` slice from the Redux store
   const { order } = useSelector((state) => state);
@@ -28,6 +28,7 @@ function OrderSummary() {
       dispatch(getOrderById(orderId));
     }
   }, [orderId, dispatch]);
+
 
   // Payment handler
   const handleCreatePayment = () => {
