@@ -13,7 +13,7 @@ export const ProductCard = ({ product }) => {
             onClick={handleNavigate}
             className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg border border-gray-200 duration-300 cursor-pointer w-full"
         >
-        
+
             <img
                 className="w-full 
                     h-[150px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] 
@@ -32,7 +32,7 @@ export const ProductCard = ({ product }) => {
                     {product.title || "No description available."}
                 </p>
 
-            
+
 
                 <div className="flex flex-col sm:flex-row justify-between items-start ml-4 md:ml-10">
                     <div>
@@ -43,7 +43,7 @@ export const ProductCard = ({ product }) => {
                         <span className="line-through text-gray-500 ml-2 text-xs sm:text-sm md:text-base lg:text-lg">
                             ₹{product.price}
                         </span>
-                        
+
 
                         {/* Discount percentage */}
                         <span className="text-green-600 ml-2 text-xs sm:text-sm md:text-base lg:text-lg mt-1 sm:mt-0 hidden md:block">
@@ -51,9 +51,9 @@ export const ProductCard = ({ product }) => {
                         </span>
 
                     </div>
-                <div className="text-green-600 ml-2 text-xs sm:text-sm md:text-base lg:text-lg mt-1 sm:mt-0  sm:hidden">
-                    22 % off 
-                </div>
+                    <div className="text-green-600 ml-2 text-xs sm:text-sm md:text-base lg:text-lg mt-1 sm:mt-0  sm:hidden">
+                        22 % off
+                    </div>
                 </div>
 
             </div>

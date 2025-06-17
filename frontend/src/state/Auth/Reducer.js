@@ -36,12 +36,7 @@ const authReducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return { ...state, isLoggedIn: true, isLoading: false, error: null, jwt: action.payload };
 
-        case GET_USER_SUCCESS:
-            // console.log("state ",state);
-            // console.log("state user ",state.user);
-            // console.log("state action ",action);
-            // console.log("state action  payload",action.payload);    
-            // console.log("state action  payload id ",action.payload._id);    
+        case GET_USER_SUCCESS:   
             return { ...state, isLoading: false, error: null, user: action.payload };
 
         case REGISTER_FAILURE:
@@ -57,6 +52,5 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-// console.log("auth reducer int reducer file : ",authReducer);
 
 export default authReducer;

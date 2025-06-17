@@ -60,6 +60,7 @@ const Navigation = () => {
   }
 
   return (
+
     <div className="bg-gray-50 lg:top-0 lg:fixed z-50 w-full">
       {/* Navbar */}
       <nav className="bg-gray-800 text-white">
@@ -71,6 +72,7 @@ const Navigation = () => {
           >
             GharSeStore
           </button>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
@@ -129,58 +131,6 @@ const Navigation = () => {
               <Search />
             </button>
           </form>
-
-
-          {/* Authentication and Cart Links
-          <div className="hidden lg:flex items-center space-x-4 ml-auto">
-            {!isLoggedIn ? (
-              <button
-                onClick={() => {
-                  closeIsMenuOpen();
-                  navigate("/register");
-                }}
-                className="hover:text-white bg-black px-3 py-2 rounded"
-              >
-                Sign In
-              </button>
-            ) : (
-              <>
-                {auth?.user?.role === "CUSTOMER" && (
-                  <>
-                    <a
-                      href="/cart"
-                      className="hover:text-white bg-black px-3 py-2 rounded"
-                    >
-                      <ShoppingCart /> Cart
-                    </a>
-                    <a
-                      href="/orders"
-                      className="hover:text-white bg-black px-3 py-2 rounded"
-                    >
-                      Orders
-                    </a>
-                  </>
-                )
-                }
-                {auth?.user?.role === "ADMIN" && (
-
-                  <a
-                    href="/Admin"
-                    className="hover:text-white bg-black px-3 py-2 rounded"
-                  >
-                    Admin
-                  </a>)
-                }
-                <button
-                  onClick={handleLogout}
-                  className="hover:text-white bg-black px-3 py-2 rounded"
-                >
-                  Logout
-                </button>
-              </>
-            )}
-          </div> */}
-
 
           <div className="hidden lg:flex items-center space-x-4 ml-auto">
             {!isLoggedIn ? (
@@ -310,7 +260,7 @@ const Navigation = () => {
                   Cart
                 </a>
               </h3>)}
-              {auth?.user  === "CUSTOMER" && (<h3>
+              {auth?.user === "CUSTOMER" && (<h3>
                 <a
                   href="/orders"
                   className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"

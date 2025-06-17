@@ -31,7 +31,7 @@ export const findProducts = (reqData) => async (dispatch) => {
     console.log("reqdat in findProducts : ", reqData);
 
     const { colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize } = reqData;
-    console.log("value in findProduct s; ",colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize);
+    console.log("value in findProduct s; ", colors, sizes, minPrice, maxPrice, minDiscount, category, stock, sort, pageNumber, pageSize);
 
 
 

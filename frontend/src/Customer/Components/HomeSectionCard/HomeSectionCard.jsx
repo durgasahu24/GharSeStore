@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Make sure you have Axios installed for API requests
+import axios from 'axios';
 import { ProductCard } from '../Product/ProductCard';
 
 function HomeSectionCard({ category, productName }) {
-  const [products, setProducts] = useState([]);  // Store products fetched from API
-  const [loading, setLoading] = useState(false);  // Track loading state
-  const [error, setError] = useState(null);       // Handle errors
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Only fetch products if the category changes
+
+
     const fetchProducts = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        // Make the API call to fetch products by category
-        const response = await axios.get('http://localhost:8000/api/products/category', {
-          params: { category },  // Pass the category as a query parameter
-        });
+        // const response = await axios.get(`${process.env.VITE_API_BASE_URL}api/products/category', {
+        //   params: { category },
+        // });
+        const response = await axios.get(`https://gharsestore.onrender.com/api/products/category`, {
+  params: { category },
+});
 
-        // Set the products state with the fetched data
+
+
         setProducts(response.data);
       } catch (err) {
         // Handle errors (e.g., network issues, server errors)

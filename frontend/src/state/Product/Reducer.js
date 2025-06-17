@@ -49,8 +49,8 @@ export const customerProductReducer = (state = initiailState, action) => {
                 ...state,
                 loading: false,
                 products: [...state.products, action.payload],
-              };
-              
+            };
+
         case DELETE_PRODUCT_SUCCESS:
             return { ...state, loading: false, error: null, deletedProduct: action.payload }
 

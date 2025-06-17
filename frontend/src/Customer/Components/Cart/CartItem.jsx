@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import { useDispatch } from "react-redux";
 
-const CartItem = ({item}) => {
+const CartItem = ({ item }) => {
 
   const dispatch = useDispatch();
 
@@ -34,9 +34,7 @@ const CartItem = ({item}) => {
       {/* Quantity Control */}
       <td className="py-2 flex items-center gap-4">
         <Button
-          // variant="outlined"
-          // onClick={() => handleDecreaseQuantity(item.id)}
-          disabled={item.quantity <= 1} 
+          disabled={item.quantity <= 1}
           onClick={() => handleUpdateCartItem(-1)}
           size="small"
         >
@@ -44,9 +42,7 @@ const CartItem = ({item}) => {
         </Button>
         <span>{item?.quantity}</span>
         <Button
-          // variant="outlined"
-          // onClick={() => handleIncreaseQuantity(item.id)}
-          // disabled={item.quantity <= item?.product?.quantity} 
+
           onClick={() => handleUpdateCartItem(+1)}
           size="small"
         >

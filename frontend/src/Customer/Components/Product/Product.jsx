@@ -41,7 +41,7 @@ function Product() {
     const pageNumber = searchParams.get("page") || 1;
     const stock = searchParams.get("stock");
 
-   
+
 
 
     // Read filter values from URL on mount
@@ -103,6 +103,7 @@ function Product() {
 
 
     // Update filters in search parameters
+
     const handleCheckboxFilter = (value, sectionId) => {
         const newFilterValues = activeFilters[sectionId].includes(value)
             ? activeFilters[sectionId].filter((item) => item !== value)
@@ -127,14 +128,15 @@ function Product() {
         navigate({ search: `?${query}` });
     };
 
-
+    // this is for adding new filter on url like &sort=
     const handleSortChange = (value) => {
         const searchParams = new URLSearchParams(location.search);
         searchParams.set("sort", value);
-        const query = searchParams.toString();
+        const query = searchParams.toString();// here searchParmas is an obj therefore we need to change it into sting
         navigate({ search: `?${query}` });
     };
 
+    //this is also same as adding nev page like &page=2
     const handlePaginationChange = (event, value) => {
         const searchParams = new URLSearchParams(location.search);
         searchParams.set("page", value);
@@ -149,6 +151,7 @@ function Product() {
             ...prevFilters,
             [sectionId]: value,
         }));
+
 
         // Update the URL search params
         const searchParams = new URLSearchParams(location.search);

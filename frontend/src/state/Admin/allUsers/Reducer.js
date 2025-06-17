@@ -39,17 +39,17 @@ const usersReducer = (state = initialState, action) => {
                 error: null,
             };
 
-            case GET_ALL_USER_FAILURE:
-                case DELETE_USER_FAILURE: // Add failure case for DELETE
-                return {
-                    ...state,
+        case GET_ALL_USER_FAILURE:
+        case DELETE_USER_FAILURE: // Add failure case for DELETE
+            return {
+                ...state,
                 loading: false,
                 error: action.payload,
             };
 
-            default:
-                return state;
-            }
-        };
-        
-        export default usersReducer;
+        default:
+            return state;
+    }
+};
+
+export default usersReducer;

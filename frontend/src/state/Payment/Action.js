@@ -7,14 +7,14 @@ import {
     UPDATE_PAYMENT_FAILURE
 
 } from "./ActionType";
-import api from "../../config/apiConfig.js";
+import api from "../../Config/apiConfig.js";
 
 
 export const createPayment = (orderId) => async (dispatch) => {
 
     dispatch({ type: CREATE_PAYMENT_REQUEST })
 
-    console.log("orderid in createPayment : ",orderId);
+    console.log("orderid in createPayment : ", orderId);
 
     try {
 
@@ -25,7 +25,7 @@ export const createPayment = (orderId) => async (dispatch) => {
         }
 
     } catch (error) {
-        console.log('error in action payment : ',error);
+        console.log('error in action payment : ', error);
         dispatch({ type: CREATE_PAYMENT_FAILURE, payload: error.message })
     }
 }
@@ -37,8 +37,8 @@ export const updatePayment = (reqData) => async (dispatch) => {
 
     dispatch({ type: UPDATE_PAYMENT_REQUEST })
 
-    console.log("reqdata payment id : ",reqData.paymentId);
-    console.log("reqdata orderid : ",reqData.orderId);
+    console.log("reqdata payment id : ", reqData.paymentId);
+    console.log("reqdata orderid : ", reqData.orderId);
 
     try {
 

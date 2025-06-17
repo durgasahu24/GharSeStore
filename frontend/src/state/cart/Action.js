@@ -11,8 +11,6 @@ export const getCart = () => async (dispatch) => {
         const { data } = await api.get("/api/cart/")
         dispatch({ type: GET_CART_SUCCESS, payload: data })
 
-        // console.log("data in getCart action : ", data);
-
     } catch (error) {
         dispatch({ type: GET_CART_FAILURE, payload: error.message })
     }

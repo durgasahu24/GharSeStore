@@ -62,12 +62,12 @@ const adminOrderReducer = (state = initialState, action) => {
             };
 
         case CONFIRMED_ORDER_SUCCESS:
-            console.log("action payload in cofirmed order status : ",action.payload._id);
+            console.log("action payload in cofirmed order status : ", action.payload._id);
             // state.orders.map(order => console.log("order : ",order._id));
             return {
                 ...state,
                 orders: state.orders.map(order =>
-            
+
                     order._id === action.payload._id ? { ...order, orderStatus: 'CONFIRMED' } : order
                 ),
                 loading: false,
