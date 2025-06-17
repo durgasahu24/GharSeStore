@@ -313,7 +313,7 @@ const Navigation = () => {
 export default Navigation;
 
 
-export const navigationData = {
+const navigationData = {
   categories: [
 
     {
