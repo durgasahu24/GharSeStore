@@ -5,17 +5,18 @@ const orderService = require("../services/order.service.js")
 const createPaymentLink = async (orderId) => {
 
     console.log("order id in payment : ", orderId);
+
     try {
-        
+
         const order = await orderService.findOrderById(orderId);
 
         const paymentLinkRequest = {
             amount: order.totalPrice * 100,
             currency: "INR",
             customer: {
-                name:order.user.firstName + " " + order.user.lastName,
-                contact:order.shippingAddress.mobile,
-                email:order.user.email,
+                name: order.user.firstName + " " + order.user.lastName,
+                contact: order.shippingAddress.mobile,
+                email: order.user.email,
             },
             notify: {
                 sms: true,
@@ -26,24 +27,24 @@ const createPaymentLink = async (orderId) => {
             callback_method: 'get'
         };
 
-        console.log("payment link request ", paymentLinkRequest);
+        // console.log("payment link request ", paymentLinkRequest);
 
 
-        console.log("razorpay : ",razorpay.paymentLink.create);
+        // console.log("razorpay : ", razorpay.paymentLink.create);
 
 
 
-            const paymentLink = await razorpay.paymentLink.create(paymentLinkRequest);
+        const paymentLink = await razorpay.paymentLink.create(paymentLinkRequest);
 
         console.log("paymentLink : ", paymentLink);
-            
-       
-        
+
+
+
 
         const paymentLinkId = paymentLink.id;
         const payment_link_url = paymentLink.short_url;  // it will redirect payment page of razorpay gateway 
 
-        console.log("payment_line_rul  : ",payment_link_url)
+        console.log("payment_line_rul  : ", payment_link_url)
 
         const resData = {
             paymentLinkId,
@@ -85,6 +86,7 @@ const updatePaymentInformation = async (reqData) => {
 
         // Fetch payment details from Razorpay
         const payment = await razorpay.payments.fetch(paymentId);
+
         if (!payment) {
             throw new Error(`Payment with ID ${paymentId} not found.`);
         }
@@ -103,6 +105,7 @@ const updatePaymentInformation = async (reqData) => {
             await order.save().catch(err => {
                 throw new Error("Failed to save order: " + err.message);
             });
+            
         } else {
             throw new Error(`Payment not captured. Current status: ${payment.status}`);
         }

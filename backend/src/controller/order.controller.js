@@ -4,8 +4,9 @@ const orderService = require("../services/order.service.js")
 const createOrder = async (req, res) => {
 
     const user = await req.user
-    console.log("req data in controller : ", req.body);
-    console.log("user : in create order controller", req.user);
+
+    // console.log("req data in controller : ", req.body);
+    // console.log("user : in create order controller", req.user);
 
     try {
 
@@ -37,8 +38,10 @@ const findOrderById = async (req, res) => {
 
 
 const orderHistory = async (req, res) => {
+
     const user = await req.user
     console.log("user _id ", user._id);
+    
     try {
         let createdOrder = await orderService.userOrderHistory(user._id)
         res.status(201).send(createdOrder)

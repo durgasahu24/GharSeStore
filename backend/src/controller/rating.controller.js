@@ -20,6 +20,7 @@ const getProductsRating = async (req, res) => {
     const productId = req.params.productId;
 
     const user = req.user
+
     try {
         const review = await ratingService.getProductsRating(productId);
         return res.status(201).send(review)

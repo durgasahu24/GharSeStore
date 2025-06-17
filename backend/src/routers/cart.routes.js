@@ -9,7 +9,7 @@ router.get("/", authenticate, cartController.findUserCart);
 
 
 // PUT: /api/cart/add
-router.put("/add",authenticate,cartController.addItemToCart);
+router.put("/add", authenticate, cartController.addItemToCart);
 
 
 module.exports = router;

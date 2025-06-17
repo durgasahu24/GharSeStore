@@ -26,7 +26,7 @@ const upload = multer({
   limits: { fileSize: 2 * 1024 * 1024 },  // Limit files to 2MB
   fileFilter: (req, file, cb) => {
     console.log("File upload in progress...");
-    const allowedMimeTypes = ["image/jpeg", "image/png", "image/jpg","image/webp"];
+    const allowedMimeTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
     if (allowedMimeTypes.includes(file.mimetype)) {
       cb(null, true);
     } else {

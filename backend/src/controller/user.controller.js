@@ -8,7 +8,7 @@ const getUserProfile = async (req, res) => {
 
 
     try {
-        
+
         const jwt = req.headers.authorization?.split(' ')[1];
         console.log("req headers authorization ", req.headers.authorization)
 
@@ -40,7 +40,6 @@ const getAllUsers = async (req, res) => {
 }
 
 
-// module.exports = {getUserProfile,getAllUsers}
 
 module.exports = {
     getUserProfile,

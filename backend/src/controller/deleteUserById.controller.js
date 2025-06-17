@@ -1,6 +1,7 @@
 const User = require("../models/user.model.js")
 
 // Controller function to delete a user by ID
+
 const deleteUserById = async (req, res) => {
   try {
     const userId = req.params.id;

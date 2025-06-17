@@ -7,6 +7,7 @@ const productService = require("../services/product.service.js")
 
 
 async function createReview(reqData, user) {
+
   try {
     console.log("Product ID:", reqData.productId);
     const product = await productService.findProductById(reqData.productId);
@@ -15,7 +16,7 @@ async function createReview(reqData, user) {
       throw new Error("Product not found with ID " + reqData.productId);
     }
 
-  
+
     // Create new review
     const review = new Review({
       product: product._id,

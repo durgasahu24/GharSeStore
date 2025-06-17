@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');  // Import the JWT package
 
 const isAdmin = (req, res, next) => {
+
     try {
-        console.log("Welcome to isAdmin middleware:");
+
 
         // 1. Get the token from the Authorization header
         const token = req.headers.authorization?.split(' ')[1];

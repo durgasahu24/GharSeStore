@@ -115,7 +115,7 @@ async function deliveredOrder(orderId) {
 
 
 async function cancelledOrder(orderId) {
-    
+
     const order = await findOrderById(orderId);
 
     order.orderStatus = 'CANCELLED'
@@ -165,10 +165,12 @@ async function userOrderHistory(userId) {
 }
 
 
+
 async function getAllOrders() {
     return await Order.find()
         .populate({ path: "orderItems", populate: { path: "product" } }).lean()
 }
+
 //douth 
 async function deleteOrder(orderId) {
     console.log("order id ", orderId);

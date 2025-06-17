@@ -110,8 +110,9 @@ async function getLatestProduct(req, res) {
 
 
 const getProductsByCategoryId = async (req, res) => {
-    
+
     try {
+
         const categoryId = req.params.categoryId;
         const products = await Product.find({ category: categoryId }); // Fetch 5 products for simplicity
 
@@ -129,6 +130,7 @@ const getProductsByCategoryId = async (req, res) => {
 
 
 const getProductByCategoryName = async (req, res) => {
+
     try {
 
         const { category } = req.query;
@@ -139,6 +141,7 @@ const getProductByCategoryName = async (req, res) => {
 
         // Find the category ObjectId
         const categoryObj = await Category.findOne({ name: category });
+
         if (!categoryObj) {
             return res.status(404).json({ error: "Category not found" });
         }

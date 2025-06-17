@@ -37,7 +37,7 @@ async function createProduct(req, res) {
                 name: req.body.topLevelCategory,
                 level: 1,
             });
-      
+
             topLevel = await topLavelCategory.save();
         }
         console.log("toplevel : ", topLevel);
@@ -45,7 +45,7 @@ async function createProduct(req, res) {
         // Fetch the second-level category
         console.log("secondlevel value : ", req.body.secondLevelCategory)
         console.log("secondlevel value : ", req.body.secondLevelCategory)
-        
+
         let secondLevel = await Category.findOne({
             name: req.body.secondLevelCategory,
             parentCategory: topLevel._id,
@@ -145,12 +145,14 @@ async function deleteProduct(productId) {
 
 
 async function updateProduct(productId, reqData) {
+    
     return await Product.findByIdAndUpdate(productId, reqData);
 }
 
 
 
 async function findProductById(productId) {
+
     const product = await Product.findById(productId).populate({
         path: "reviews",
         populate: {
@@ -203,7 +205,7 @@ async function getAllProducts(reqQuery) {
         }
     }
 
-    // console.log("query for category : ", query);
+
 
     // Handle color filtering
     if (color) {
@@ -260,7 +262,6 @@ async function getAllProducts(reqQuery) {
 
     return { content: products, currentPage: pageNumber, totalPages };
 }
-
 
 
 

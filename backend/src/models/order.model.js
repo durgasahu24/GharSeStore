@@ -15,7 +15,7 @@ const orderSchema = new Schema({
   orderDate: {
     type: Date,
     required: true,
-    default:Date.now()
+    default: Date.now()
   },
   deliveryDate: {
     type: Date,
@@ -25,21 +25,21 @@ const orderSchema = new Schema({
     ref: 'addresses',
   },
   paymentDetails: {
-    
+
     paymentMethod: {
       type: String,
     },
     transactionId: {
       type: String,
     },
-    paymentId:{
-      type:String,
+    paymentId: {
+      type: String,
     },
-    paymentStatus:{
-      type:String,
-      default:"PENDING"
+    paymentStatus: {
+      type: String,
+      default: "PENDING"
     }
-    
+
   },
   totalPrice: {
     type: Number,
@@ -56,7 +56,7 @@ const orderSchema = new Schema({
   orderStatus: {
     type: String,
     required: true,
-    default:"PENDING"
+    default: "PENDING"
   },
   totalItem: {
     type: Number,
