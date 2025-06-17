@@ -1,4 +1,4 @@
-const navigationData = {
+export const navigationData = {
   categories: [
 
     {
@@ -124,6 +124,5 @@ const navigationData = {
   ],
 }
 
-export default navigationData;
 
 
