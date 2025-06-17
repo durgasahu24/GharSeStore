@@ -4,8 +4,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser, logout } from "../../../state/Auth/Action.js";
-// import { navigationData } from "./navigationData.js";
-
 
 
 
