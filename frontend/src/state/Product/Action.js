@@ -1,7 +1,5 @@
 
 import api from '../../Config/apiConfig.js';
-import { API_BASE_URL } from '../../Config/apiConfig.js';
-
 
 import {
     CREATE_PRODUCT_FAILURE,
@@ -118,7 +116,8 @@ export const deleteProduct = (productId) => async (dispatch) => {
     console.log("products id ", productId)
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST })
-        const { data } = await api.delete(`${API_BASE_URL}/api/admin/products/${productId}`)
+        // const { data } = await api.delete(`${API_BASE_URL}/api/admin/products/${productId}`)
+        const { data } = await api.delete(`/api/admin/products/${productId}`)
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
             payload: productId,
