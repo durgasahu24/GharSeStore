@@ -28,5 +28,5 @@ coverage/
 data/
 *.lock
 mongod.lock
-
+.env
 
