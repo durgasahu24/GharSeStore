@@ -15,16 +15,25 @@ function HomeSectionCard({ category, productName }) {
       setError(null);
 
       try {
-        // const response = await axios.get(`${process.env.VITE_API_BASE_URL}api/products/category', {
+
+
+
+        // const response = await axios.get(`https://gharsestore.onrender.com/api/products/category`, {
         //   params: { category },
-        // });
-        const response = await axios.get(`https://gharsestore.onrender.com/api/products/category`, {
-  params: { category },
-});
+        // })
+
+        console.log(" process.env.VITE_API_BASE_URL ", import.meta.env.VITE_API_BASE_URL)
+        console.log('category  ',category);
 
 
+          const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/category`, {
+            params: { category },
+          });
 
-        setProducts(response.data);
+
+          console.log("respone of fetch product ",response);
+
+          setProducts(response.data);
       } catch (err) {
         // Handle errors (e.g., network issues, server errors)
         console.log("error : home ", error)

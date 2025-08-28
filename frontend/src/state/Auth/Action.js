@@ -1,9 +1,10 @@
 import { toast } from "react-toastify";
-// import api, {API_BASE_URL} from "../../Config/apiConfig.js";
 import api from "../../Config/apiConfig";
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE, LOGOUT } from "./ActionType";
 import axios from "axios";
 
+
+let API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 
 
 
@@ -25,8 +26,7 @@ export const register = (userdata) => async (dispatch) => {
 
     console.log("userData", userdata);
     console.log("ap base url ", API_BASE_URL);
-    // const response = await axios.post(`${API_BASE_URL}/auth/signup`, userdata);
-    const response = await api.post(`/auth/signup`, userdata);
+    const response = await axios.post(`${API_BASE_URL}/auth/signup`, userdata);
 
     console.log("response ======  : ", response);
 
@@ -64,10 +64,10 @@ export const login = (userData) => async (dispatch) => {
 
 
   try {
-    // const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
-    const response = await api.post(`/auth/signin`, userData);
+    const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
+    // const response = await api.post(`/auth/signin`, userData);
     const user = response.data;
-    // console.log("user in login  :", user)
+    console.log("user in login  :", user)
     if (user.jwt) localStorage.setItem("jwt", user.jwt)
     toast.success("User logged in successfully")
     dispatch(loginSuccess(user));

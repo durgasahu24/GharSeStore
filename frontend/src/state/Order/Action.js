@@ -28,12 +28,10 @@ export const createOrder = (reqData) => async (dispatch) => {
 
         const { data } = await api.post(`/api/orders/`, reqData.formData);
 
-        toast.success("Product created successfullly ");
 
         console.log("data after order created : ", data);
 
         if (data._id) {
-            // reqData.navigate(`OrderSummary?order_id=${data._id}`);
             reqData.navigate(`/OrderSummary?order_id=${data._id}`);
 
         }

@@ -15,9 +15,7 @@ function RelatedProduct({ categoryId }) {
   const [products, setProducts] = useState(null);
   console.log("products category wise :", products);
 
-  // const { products } = useSelector(store => store);
 
-  // console.log("products  : ",products);
 
   useEffect(() => {
     const fetchProductsByCategory = async () => {
@@ -38,7 +36,8 @@ function RelatedProduct({ categoryId }) {
 
 
   return (
-    <div className='pb-10'>
+    // <div className='sm:pb-10 md:md:-mt-12 lg:mt-0 xl:-mt-13'>
+    <div className="pb-6 sm:pb-10 md:-mt-12 lg:mt-0 xl:-mt-12">
        <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 text-center mb-8 uppercase tracking-wide">
         RELATED PRODUCTS
       </h1>

@@ -8,7 +8,6 @@ import CreateProductForm from './CreateProductForm.jsx';
 const Body = ({ activeOption }) => {
   return (
     <div>
-      {/* Render different content based on the selected option */}
       {activeOption === 'orders' && <h2 className="text-xl font-bold"><OrderTable/></h2>}
       {activeOption === 'products' && <h2 className="text-xl font-bold"><ProductsTable/></h2>}
       {activeOption === 'customers' && <h2 className="text-xl font-bold"><CustomerTable/></h2>}

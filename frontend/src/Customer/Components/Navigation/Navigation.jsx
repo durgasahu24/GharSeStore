@@ -255,7 +255,7 @@ const Navigation = () => {
               {/* Orders */}
 
 
-              {auth?.user === "CUSTOMER" && (<h3>
+              {auth?.user?.role === "CUSTOMER" && (<h3>
                 <a
                   href="/cart"
                   className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"
@@ -263,7 +263,7 @@ const Navigation = () => {
                   Cart
                 </a>
               </h3>)}
-              {auth?.user === "CUSTOMER" && (<h3>
+              {auth?.user?.role === "CUSTOMER" && (<h3>
                 <a
                   href="/orders"
                   className="block w-full text-left text-gray-700 hover:bg-gray-200 p-2 rounded"

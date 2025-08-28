@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";  // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom"; 
 import { register, login } from "../../../state/Auth/Action";
 import { useSelector, useDispatch } from "react-redux";
 import store from "../../../state/store";
@@ -8,15 +8,14 @@ import { getUser } from "../../../state/Auth/Action";
 
 const AuthPage = () => {
 
-    // State for handling user input
-    const [isLoginForm, setIsLoginForm] = useState(true);  // Toggle between Login and Register forms
-    const [firstName, setFirstName] = useState(""); // First name for registration
-    const [lastName, setLastName] = useState("");   // Last name for registration
+    const [isLoginForm, setIsLoginForm] = useState(true);  
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");  
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("CUSTOMER");  // Default role is customer
+    const [role, setRole] = useState("CUSTOMER");  
 
-    const navigate = useNavigate();  // Initialize the navigate hook to redirect the user
+    const navigate = useNavigate(); 
     const dispatch = useDispatch();
     const jwt = localStorage.getItem("jwt")
 
@@ -40,14 +39,14 @@ const AuthPage = () => {
             role,
         };
 
-        // Call login API here (simulated with a console log for now)
-        // console.log("Logging in with", loginData);
+        
+        
         dispatch(login(loginData))  // Dispatch login action
             .then(() => navigate("/"))
             .catch((error) => console.error("Login failed:", error));
 
 
-        // Since isLoggedIn is managed by Redux, the useEffect will handle the redirection after login success
+     
     };
 
     // Handle submit for Registration
@@ -70,7 +69,6 @@ const AuthPage = () => {
 
 
     };
-
 
 
     return (

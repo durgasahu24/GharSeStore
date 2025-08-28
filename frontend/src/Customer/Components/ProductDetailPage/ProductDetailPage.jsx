@@ -11,6 +11,7 @@ import { addItemToCart } from "../../../state/cart/Action";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import RelatedProduct from "./RelatedProduct";
 import { getUser } from "../../../state/Auth/Action";
+import { toast } from "react-toastify";
 
 const ProductDetailPage = () => {
   const navigate = useNavigate();
@@ -19,19 +20,18 @@ const ProductDetailPage = () => {
   const jwt = localStorage.getItem("jwt");
   const { products, auth } = useSelector((store) => store);
 
-  // State for the main image
   const [mainImage, setMainImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
 
-  // Log product sizes for debugging
+
   console.log("Product sizes:", products?.product?.category);
 
-  // Fetch product details when the component mounts or params.productId changes
+
   useEffect(() => {
     dispatch(findProductsById(params.productId));
   }, [params.productId, dispatch]);
 
-  // Update the main image when product images are loaded
+
   useEffect(() => {
     if (products?.product?.images?.length > 0) {
       setMainImage(products.product.images[0]);
@@ -47,6 +47,7 @@ const ProductDetailPage = () => {
 
   const handleAddToCart = ({ selectedSize = "S" }) => {
     if (!auth?.user) {
+      toast.success("Please register or login first")
       navigate("/register")
       return
     }
@@ -61,9 +62,7 @@ const ProductDetailPage = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-screen lg:mt-[68px]">
-        {/* Image Section */}
         <div className="flex flex-col-reverse lg:flex-row items-start gap-4">
-          {/* Thumbnail Images */}
           <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-auto">
             {products?.product?.images?.map((img, index) => (
               <div
@@ -81,7 +80,6 @@ const ProductDetailPage = () => {
             ))}
           </div>
 
-          {/* Main Image */}
           <div className="w-full h-96 md:h-100 lg:h-[640px] border rounded-lg overflow-hidden">
             <img
               src={mainImage || "https://via.placeholder.com/640"} // Fallback if mainImage is null
@@ -91,12 +89,9 @@ const ProductDetailPage = () => {
           </div>
         </div>
 
-        {/* Product Details Section */}
         <div className="flex-col justify-center items-center min-h-screen pt-8">
-          {/* Product Title */}
           <h1 className="text-3xl font-bold mb-4">{products?.product?.title || "Product Title"}</h1>
 
-          {/* Pricing */}
           <div className="flex items-baseline mb-4">
             <p className="text-2xl font-semibold text-blue-600">
               ₹ {products?.product?.discountedPrice || "0"}
@@ -137,7 +132,6 @@ const ProductDetailPage = () => {
 
           {/* Add to Cart and Buy Now Buttons */}
 
-          {auth?.user?.role === "CUSTOMER" && (
               <div className="flex gap-6">
 
                 <button
@@ -147,16 +141,13 @@ const ProductDetailPage = () => {
                   Add to Cart
                 </button>
               </div>
-          ) }
 
 
           {/* Recent Review Rating */}
           <RecentReviewRating Id={params?.productId} />
         </div>
 
-        {/* <h1>Related Products</h1> */}
       </div>
-
       <RelatedProduct categoryId={products?.product?.category} />
     </div>
   );
