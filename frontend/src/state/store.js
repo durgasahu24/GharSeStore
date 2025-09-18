@@ -10,8 +10,6 @@ import reviewReducer from './Review/Reducer.js'
 
 
 
-
-
 const rootReducers = combineReducers({
   auth: authReducer,
   products: customerProductReducer,

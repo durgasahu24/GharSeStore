@@ -107,7 +107,7 @@ export const PaymentSuccess = () => {
                                 <p className="text-gray-600 text-sm">
                                     DisCounted price: ₹{order.discountedPrice}
                                 </p>
-                            
+
                             </div>
                         </div>
                     ))}

@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 })
 
 
-
 const authRouters = require("./routers/auth.routes.js")
 app.use("/auth", authRouters)
 

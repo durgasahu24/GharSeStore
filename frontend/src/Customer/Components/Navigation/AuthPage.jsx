@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { register, login } from "../../../state/Auth/Action";
 import { useSelector, useDispatch } from "react-redux";
 import store from "../../../state/store";
@@ -8,14 +8,14 @@ import { getUser } from "../../../state/Auth/Action";
 
 const AuthPage = () => {
 
-    const [isLoginForm, setIsLoginForm] = useState(true);  
+    const [isLoginForm, setIsLoginForm] = useState(true);
     const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");  
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("CUSTOMER");  
+    const [role, setRole] = useState("CUSTOMER");
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const jwt = localStorage.getItem("jwt")
 
@@ -39,14 +39,12 @@ const AuthPage = () => {
             role,
         };
 
-        
-        
+
         dispatch(login(loginData))  // Dispatch login action
             .then(() => navigate("/"))
             .catch((error) => console.error("Login failed:", error));
 
 
-     
     };
 
     // Handle submit for Registration

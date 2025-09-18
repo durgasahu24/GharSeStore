@@ -145,7 +145,7 @@ async function deleteProduct(productId) {
 
 
 async function updateProduct(productId, reqData) {
-    
+
     return await Product.findByIdAndUpdate(productId, reqData);
 }
 

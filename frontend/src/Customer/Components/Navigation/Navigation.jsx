@@ -6,9 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUser, logout } from "../../../state/Auth/Action.js";
 
 
-
-
-
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu toggle
   const [openDropdown, setOpenDropdown] = useState(null); // Dropdown state

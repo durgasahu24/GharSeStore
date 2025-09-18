@@ -16,8 +16,6 @@ import PaymentSuccess from "../paymentSuccess/PaymentSuccess"
 import RateAndReview from "../RateReviews/RateAndReview"
 
 
-
-
 function CustomRouters() {
     return (
         <div>

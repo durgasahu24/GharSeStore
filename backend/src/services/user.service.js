@@ -64,7 +64,7 @@ const getUserByEmail = async (email) => {
 
 
 const getUserProfileByToken = async (token) => {
-    
+
     try {
         const userId = jwtProvider.getUserIdFromToken(token);
 

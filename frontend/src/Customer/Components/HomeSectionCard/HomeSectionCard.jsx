@@ -16,14 +16,7 @@ function HomeSectionCard({ category, productName }) {
 
       try {
 
-
-
-        // const response = await axios.get(`https://gharsestore.onrender.com/api/products/category`, {
-        //   params: { category },
-        // })
-
         console.log(" process.env.VITE_API_BASE_URL ", import.meta.env.VITE_API_BASE_URL)
-        console.log('category  ',category);
 
 
           const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/category`, {
