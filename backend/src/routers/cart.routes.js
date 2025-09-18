@@ -5,7 +5,7 @@ const cartController = require("../controller/cart.controller.js")
 
 
 // GET: /api/cart
-router.get("/", authenticate, cartController.findUserCart);
+router.get("/userCart", authenticate, cartController.findUserCart);
 
 
 // PUT: /api/cart/add

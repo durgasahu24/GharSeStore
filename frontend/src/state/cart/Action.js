@@ -8,7 +8,7 @@ export const getCart = () => async (dispatch) => {
     dispatch({ type: GET_CART_REQUEST })
 
     try {
-        const { data } = await api.get("/api/cart/")
+        const { data } = await api.get("/api/cart/userCart")
         dispatch({ type: GET_CART_SUCCESS, payload: data })
 
     } catch (error) {
