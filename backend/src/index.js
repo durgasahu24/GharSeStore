@@ -4,8 +4,17 @@ const cors = require("cors")
 
 const app = express()
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://ghar-se-store.vercel.app"
+];
+
+
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}))
 
 require("dotenv").config();
 

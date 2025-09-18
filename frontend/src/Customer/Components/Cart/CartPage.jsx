@@ -14,6 +14,7 @@ const CartPage = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { cart } = useSelector(store => store);
+  console.log("cart ",cart);
 
 
 
@@ -57,7 +58,7 @@ const CartPage = () => {
           <tbody>
             {cart?.cart?.cartItems.map((item) => (
               <CartItem
-                key={item._id}
+                key={item?._id}
                 item={item}
               />
             ))}
