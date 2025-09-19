@@ -23,14 +23,10 @@ const createPaymentLink = async (orderId) => {
                 email: true,
             },
             reminder_enable: true,
-            callback_url: `http://localhost:5173/payment/${orderId}`,
+            callback_url: `https://ghar-se-store.vercel.app/payment/${orderId}`,
             callback_method: 'get'
         };
 
-        // console.log("payment link request ", paymentLinkRequest);
-
-
-        // console.log("razorpay : ", razorpay.paymentLink.create);
 
 
 
@@ -105,7 +101,7 @@ const updatePaymentInformation = async (reqData) => {
             await order.save().catch(err => {
                 throw new Error("Failed to save order: " + err.message);
             });
-            
+
         } else {
             throw new Error(`Payment not captured. Current status: ${payment.status}`);
         }
