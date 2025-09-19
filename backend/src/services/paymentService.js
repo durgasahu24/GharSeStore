@@ -23,7 +23,7 @@ const createPaymentLink = async (orderId) => {
                 email: true,
             },
             reminder_enable: true,
-            callback_url: `https://ghar-se-store.vercel.app/${orderId}`,
+            callback_url: `https://ghar-se-store.vercel.app/payment/${orderId}`,
             callback_method: 'get'
         };
 
