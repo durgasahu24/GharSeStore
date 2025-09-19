@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../../state/cart/Action";
 import { removeCartItem } from "../../../state/cart/Action";
+import { updateCartItem } from "../../../state/cart/Action";
 
 
 
@@ -24,9 +25,8 @@ const CartPage = () => {
 
 
 
-  const handleUpdateCartItem = (num) => {
+  const handleUpdateCartItem = (item,num) => {
     const data = { data: { quantity: item.quantity + num }, cartItemId: item?._id }
-    // console.log("update data ", data)
     dispatch(updateCartItem(data))
   }
 
@@ -94,9 +94,9 @@ const CartPage = () => {
 
                 {/* Quantity Control */}
                 <div className="flex items-center mb-2">
-                  <Button disabled={item.quantity <= 1} onClick={() => handleUpdateCartItem(-1)}>-</Button>
+                  <Button disabled={item.quantity <= 1} onClick={() => handleUpdateCartItem(item,-1)}>-</Button>
                   <span className="mx-2">{item?.quantity}</span>
-                  <Button onClick={() => handleUpdateCartItem(+1)}>+</Button>
+                  <Button onClick={() => handleUpdateCartItem(item,+1)}>+</Button>
                 </div>
 
                 {/* Product Price Details */}
