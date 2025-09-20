@@ -163,7 +163,7 @@ function Product() {
     return (
 
         <div>
-            <div className="flex flex-col lg:flex-row min-h-screen mt-15 lg:mt-[68px]">
+            <div className="flex flex-col lg:flex-row min-h-screen mt-15 mt-[78px]">
                 {/* Filter Button for Mobile/Tablet */}
                 <div className="lg:hidden p-4">
                     <button

@@ -41,7 +41,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col lg:mt-[69px]">
+    <div className="min-h-screen flex flex-col mt-[79px]">
       {/* Cart Table Section */}
       <div className="flex-1 overflow-y-auto p-4">
         <table className="w-full hidden md:table">

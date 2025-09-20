@@ -61,7 +61,7 @@ const Navigation = () => {
 
   return (
 
-    <div className="bg-gray-50 lg:top-0 lg:fixed z-50 w-full">
+    <div className="  bg-gray-50 top-0 fixed z-40 w-full">
       {/* Navbar */}
       <nav className="bg-gray-800 text-white">
         <div className="container mx-auto px-6 flex justify-between items-center h-16">
@@ -196,7 +196,7 @@ const Navigation = () => {
       {
         isMenuOpen && (
           <div
-            className="absolute inset-0 bg-black bg-opacity-50 z-10"
+            className=" inset-0 bg-black bg-opacity-50 z-50 fixed"
             onClick={() => setIsMenuOpen(false)}
           >
             <div

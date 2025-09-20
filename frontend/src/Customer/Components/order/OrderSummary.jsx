@@ -37,7 +37,7 @@ function OrderSummary() {
   };
 
   return (
-    <div className="container mx-auto p-8 min-h-screen lg:mt-[68px]">
+    <div className="container mx-auto p-8 min-h-screen mt-[75px]">
       {/* User Details and Price Cart next to each other (responsive) */}
       <div className="flex flex-col lg:flex-row lg:justify-between mb-4 lg:mb-0">
         {/* User Details */}
