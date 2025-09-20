@@ -19,7 +19,7 @@ export const Footer = () => {
                         <div>
                             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
                             <ul className="space-y-2">
-                                {["Home", "Shop", "About", "Contact"].map((link) => (
+                                {["Home", "Shop"].map((link) => (
                                     <li key={link}>
                                         <a href={`#${link.toLowerCase()}`} className="hover:text-yellow-500">
                                             {link}
@@ -29,23 +29,9 @@ export const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Newsletter */}
-                        <div>
-                            <h3 className="text-lg font-bold mb-4">Stay Connected</h3>
-                            <form className="flex items-center bg-gray-700 rounded overflow-hidden">
-                                <input
-                                    type="email"
-                                    className="px-4 py-2 bg-gray-700 text-white placeholder-gray-400 focus:outline-none w-full"
-                                    placeholder="Your email"
-                                />
-                                <button
-                                    type="submit"
-                                    className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black"
-                                >
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
+                        <p class="text-sm">
+                            © 2025 GharSeStore. All rights reserved.
+                        </p>
                     </div>
                 </div>
             </footer>

@@ -20,7 +20,7 @@ const HomePage = () => {
         const fetchLatestProducts = async () => {
 
             try {
-                
+
                 const response = await api.get('/api/products/latest'); // API call
 
                 setProducts(response.data.data); // Update state with fetched products
