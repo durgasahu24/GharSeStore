@@ -3,8 +3,8 @@ import { Rating } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts, findProductsById } from "../../../state/Product/Action.js";
-// import { createRating } from "../../../state/review/Action.js";
 import { createRating } from "../../../state/Review/Action.js";
+import {createReview} from "../../../state/Review/Action.js"
 
 
 
@@ -16,7 +16,6 @@ export function RateAndReview() {
   const navigate = useNavigate();
   console.log("item id in rate :", productId);
   const dispatch = useDispatch();
-  // const itemId = param.itemId;
 
   const { products } = useSelector(store => store)
 
@@ -48,14 +47,8 @@ export function RateAndReview() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 flex flex-col items-center p-4 sm:p-6 lg:mt-[64px]">
-      {/* Animated Title */}
-      <div className="relative mb-10">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-800 animate-pulse">
-          Rate & Review
-        </h1>
-        <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-gray-400 to-gray-800 rounded-full animate-ping"></div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 flex flex-col items-center p-4 sm:p-6 mt-[64px] md:mt-0 justify-center">
+
 
       {/* Content Section */}
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg flex flex-col md:flex-row p-4 sm:p-6 gap-6">

@@ -9,9 +9,11 @@ const RecentReviewRating = ({ Id }) => {
 
   
   const [showAllReviews, setShowAllReviews] = useState(false);
+
   const dispatch = useDispatch();
   const {reviewRating } = useSelector(store=>store);
   const {ratings,reviews} = reviewRating;
+  console.log(reviews)
 
 
   useEffect(() => {

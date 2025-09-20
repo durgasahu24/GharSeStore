@@ -15,7 +15,8 @@ const Navigation = () => {
 
 
   const { auth } = useSelector(store => store);
-  console.log("auth in navi:", auth);
+
+  console.log("auth : ",auth)
 
   // Check login state based on JWT token
   const isLoggedIn = Boolean(auth.user);
