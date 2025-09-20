@@ -51,7 +51,6 @@ export default function streetAddressForm() {
       setIsSubmitting(true);
       // Simulate form submission
       setTimeout(() => {
-        // console.log('Form submitted:', formData);
         dispatch(createOrder({formData,navigate}))
         setIsSubmitting(false);
       }, 2000);
@@ -59,8 +58,8 @@ export default function streetAddressForm() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg min-h-screen lg:mt-[70px]">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">Delivery Information</h1>
+    <div className="max-w-4xl mx-auto mt-12 p-6 bg-white shadow-lg rounded-lg min-h-screen lg:mt-[70px]">
+      <h1 className=" text-2xl lg:text-4xl font-bold text-gray-800 mb-6 text-center whitespace-nowrap">Delivery Information</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -74,7 +73,7 @@ export default function streetAddressForm() {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.firstName ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.firstName ? 'border-red-500' : ''}`}
             />
             {errors.firstName && <p className="text-xs text-red-500 mt-1">{errors.firstName}</p>}
           </div>
@@ -89,7 +88,7 @@ export default function streetAddressForm() {
               value={formData.lastName}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.lastName ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.lastName ? 'border-red-500' : ''}`}
             />
             {errors.lastName && <p className="text-xs text-red-500 mt-1">{errors.lastName}</p>}
           </div>
@@ -106,7 +105,7 @@ export default function streetAddressForm() {
               onChange={handleChange}
               required
               rows="4"
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.streetAddress ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.streetAddress ? 'border-red-500' : ''}`}
             />
             {errors.streetAddress && <p className="text-xs text-red-500 mt-1">{errors.streetAddress}</p>}
           </div>
@@ -123,7 +122,7 @@ export default function streetAddressForm() {
               value={formData.city}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.city ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.city ? 'border-red-500' : ''}`}
             />
             {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
           </div>
@@ -138,7 +137,7 @@ export default function streetAddressForm() {
               value={formData.state}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.state ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.state ? 'border-red-500' : ''}`}
             />
             {errors.state && <p className="text-xs text-red-500 mt-1">{errors.state}</p>}
           </div>
@@ -156,7 +155,7 @@ export default function streetAddressForm() {
               value={formData.zipCode}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.zipCode ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.zipCode ? 'border-red-500' : ''}`}
             />
             {errors.zipCode && <p className="text-xs text-red-500 mt-1">{errors.zipCode}</p>}
           </div>
@@ -171,7 +170,7 @@ export default function streetAddressForm() {
               value={formData.mobile}
               onChange={handleChange}
               required
-              className={`mt-1 p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.mobile ? 'border-red-500' : ''}`}
+              className={`mt-1 p-1 lg:p-3 w-full border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 ${errors.mobile ? 'border-red-500' : ''}`}
             />
             {errors.mobile && <p className="text-xs text-red-500 mt-1">{errors.mobile}</p>}
           </div>

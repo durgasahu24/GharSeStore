@@ -43,7 +43,7 @@ function HomeSectionCard({ category, productName }) {
   }, [category]); // This effect runs whenever the category prop changes
 
   return (
-    <div className="py-10 lg:py-16 px-4 md:px-8">
+    <div className="py-2 md:py-5  px-4 md:px-8">
       {/* Section Heading */}
       <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 text-center mb-8 uppercase tracking-wide">
         {productName}

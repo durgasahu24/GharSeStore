@@ -8,6 +8,9 @@ export const ProductCard = ({ product }) => {
         navigate(`/product/${product?._id}`);
     };
 
+
+    
+
     return (
         <div
             onClick={handleNavigate}

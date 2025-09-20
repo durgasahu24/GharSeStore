@@ -24,7 +24,6 @@ const ProductDetailPage = () => {
   const [selectedSize, setSelectedSize] = useState("");
 
 
-  console.log("Product sizes:", products?.product?.category);
 
 
   useEffect(() => {
@@ -58,6 +57,15 @@ const ProductDetailPage = () => {
 
     navigate("/Cart");
   };
+
+
+  const { productId } = useParams();
+
+  console.log("id in des ",productId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // scroll to top whenever product id changes
+  }, [productId]);
 
   return (
     <div>
@@ -132,15 +140,15 @@ const ProductDetailPage = () => {
 
           {/* Add to Cart and Buy Now Buttons */}
 
-              <div className="flex gap-6">
+          <div className="flex gap-6">
 
-                <button
-                  onClick={handleAddToCart}
-                  className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
-                >
-                  Add to Cart
-                </button>
-              </div>
+            <button
+              onClick={handleAddToCart}
+              className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+            >
+              Add to Cart
+            </button>
+          </div>
 
 
           {/* Recent Review Rating */}

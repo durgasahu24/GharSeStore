@@ -36,7 +36,7 @@ const HomePage = () => {
 
     return (
 
-        <div className="bg-white text-black py-28 lg:py-32 text-center min-h-screen flex flex-col justify-center items-center">
+        <div className="bg-white text-black pt-28 lg:pt-30 pb-4 text-center min-h-screen flex flex-col justify-center items-center">
             <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold mb-4">
                 Welcome to Our E-Commerce Site
             </h1>
