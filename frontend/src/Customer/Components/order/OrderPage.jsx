@@ -27,7 +27,7 @@ const OrderPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 py-8 lg:mt-[64px]">
+        <div className="min-h-screen bg-gray-100 py-8 mt-[64px]">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-6">Order History</h1>
 

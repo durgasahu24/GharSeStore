@@ -62,38 +62,38 @@ import PaymentSuccess from "../paymentSuccess/PaymentSuccess";
 import RateAndReview from "../RateReviews/RateAndReview";
 
 function CustomRouters() {
-  const location = useLocation();
+    const location = useLocation();
 
-  const hideFooterPaths = ["/register", "/login"];
+    const hideFooterPaths = ["/register", "/login"];
 
-  const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
+    const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Navigation />
-
-
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<AuthPage />} />
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="/:lavelOne/:lavelTwo/:lavelThree" element={<Product />} />
-          <Route path="/product/:productId" element={<ProductDetailPage />} />
-          <Route path="/Checkout" element={<AddressForm />} />
-          <Route path="/Cart" element={<CartPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/Account/OrderDetails/:orderId" element={<OrderDetails />} />
-          <Route path="/OrderSummary" element={<OrderSummary />} />
-          <Route path="/order-details/:productId/RateAndReview" element={<RateAndReview />} />
-          <Route path="/payment/:orderId" element={<PaymentSuccess />} />
-        </Routes>
-      </main>
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Navigation />
 
 
-      {shouldShowFooter && <Footer />}
-    </div>
-  );
+            <main className="flex-grow">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/register" element={<AuthPage />} />
+                    <Route path="/login" element={<AuthPage />} />
+                    <Route path="/:lavelOne/:lavelTwo/:lavelThree" element={<Product />} />
+                    <Route path="/product/:productId" element={<ProductDetailPage />} />
+                    <Route path="/Checkout" element={<AddressForm />} />
+                    <Route path="/Cart" element={<CartPage />} />
+                    <Route path="/orders" element={<OrdersPage />} />
+                    <Route path="/Account/OrderDetails/:orderId" element={<OrderDetails />} />
+                    <Route path="/OrderSummary" element={<OrderSummary />} />
+                    <Route path="/order-details/:productId/RateAndReview" element={<RateAndReview />} />
+                    <Route path="/payment/:orderId" element={<PaymentSuccess />} />
+                </Routes>
+            </main>
+
+
+            {shouldShowFooter && <Footer />}
+        </div>
+    );
 }
 
 export default CustomRouters;
